@@ -42,31 +42,31 @@ Figure 1 shows the idealized cell geometry used by the model. A neck of radius $
 For a circular neck with radius $r$ and physical length $L$, the opening area and effective neck length are
 
 ```math
-S_n=\pi r^2, \qquad L_{\mathrm{eff}}=L+1.7r \tag{1}
+S_n=\pi r^2, \qquad L_{\mathrm{eff}}=L+1.7r \qquad (1)
 ```
 
 The assumed end correction $1.7r$ accounts approximately for air moving just outside the neck openings. The neck’s acoustic mass and the cavity’s acoustic compliance are then
 
 ```math
-M_a=\frac{\rho L_{\mathrm{eff}}}{S_n}, \qquad C_a=\frac{V_c}{\rho c^2} \tag{2}
+M_a=\frac{\rho L_{\mathrm{eff}}}{S_n}, \qquad C_a=\frac{V_c}{\rho c^2} \qquad (2)
 ```
 
 where $V_c$ is the cavity volume, $\rho$ is air density, and $c$ is the speed of sound. Acoustic mass describes the neck air's inertia and compliance describes how readily the cavity air compresses. Together, these quantities determine the model’s resonance frequency:
 
 ```math
-\omega_0=\frac{1}{\sqrt{M_aC_a}} \tag{3}
+\omega_0=\frac{1}{\sqrt{M_aC_a}} \qquad (3)
 ```
 
 where the angular frequency $\omega_0$ is measured in radians per second. Dividing by $2\pi$ converts it to the tuning frequency $f_0$ in hertz, or oscillations per second. Substituting the expressions for acoustic mass and compliance gives
 
 ```math
-f_0=\frac{\omega_0}{2\pi} = \frac{c}{2\pi} \sqrt{\frac{S_n}{V_cL_{\mathrm{eff}}}} \tag{4}
+f_0=\frac{\omega_0}{2\pi} = \frac{c}{2\pi} \sqrt{\frac{S_n}{V_cL_{\mathrm{eff}}}} \qquad (4)
 ```
 
 connecting the cell's geometry to its tuning frequency. The resonator cell's response also depends on damping, which is the energy lost from the oscillating air motion. These losses limit the resonant motion and affect the width of its frequency response. Using $\omega_0=2\pi f_0$, the baseline model represents them collectively through an acoustic resistance,
 
 ```math
-R=\frac{\omega_0M_a}{Q} \tag{5}
+R=\frac{\omega_0M_a}{Q} \qquad (5)
 ```
 
 The project assumes a quality factor of $Q=15$ for every bank. For fixed geometry, higher $Q$ corresponds to lower resistance and a narrower resonant response. Fixing $Q$ supplies a simplified linear loss model without separately calculating viscous and thermal losses for every geometry. This value is a study assumption. Additional amplitude-dependent neck-flow effects are investigated later using CFD.
@@ -74,7 +74,7 @@ The project assumes a quality factor of $Q=15$ for every bank. For fixed geometr
 To predict the cell’s response to sound, the model then combines resistance, neck inertia, and cavity compliance into its acoustic impedance, $Z_a$. This relates the oscillating pressure at the opening to the volume flow entering the cell. It describes both how much air moves and its phase, which is the timing of that motion relative to the pressure.
 
 ```math
-Z_a(\omega) = R+\mathrm{i} \left( \omega M_a-\frac{1}{\omega C_a} \right) \tag{6}
+Z_a(\omega) = R+\mathrm{i} \left( \omega M_a-\frac{1}{\omega C_a} \right) \qquad (6)
 ```
 
 Here, $\omega=2\pi f$ is the angular frequency of the sound being evaluated, whereas $\omega_0$ specifies the cell’s tuning frequency. Unlike $\omega_0$, which specifies the cell’s tuning, $\omega$ varies across the sound frequencies being assessed.
@@ -101,7 +101,7 @@ Figure 2(a) and 2(b) connect individual resonator cells to their intended applic
 For the acoustic calculation, the banks are assumed to be uniformly mixed over the treated region. Cells exposed to the same local pressure contribute volume flows that add. Under the model’s idealized cavity-volume convention, the number of cells per square meter of treated liner is
 
 ```math
-n_i=\frac{a_iD}{V_{c,i}} \tag{7}
+n_i=\frac{a_iD}{V_{c,i}} \qquad (7)
 ```
 
 where $D$ is the shared cavity depth. The bank shares sum to one and describe allocation within the treated region, not the fraction of the entire fairing wall covered.
@@ -109,13 +109,13 @@ where $D$ is the shared cavity depth. The bank shares sum to one and describe al
 Since their volume flows add, their cell admittances, which are the reciprocals of their cell impedances ($Z_{a,i}$), combine and are weighted by cell density:
 
 ```math
-Y_s(f)=\sum_{i=1}^{4}\frac{n_i}{Z_{a,i}(2\pi f)} \tag{8}
+Y_s(f)=\sum_{i=1}^{4}\frac{n_i}{Z_{a,i}(2\pi f)} \qquad (8)
 ```
 
 Here, $Y_s$ is the combined surface admittance and $n_i$ is the number of cells from bank $i$ per unit treated area. Inverting this total gives the liner’s surface impedance:
 
 ```math
-z_s(f)=\frac{1}{Y_s(f)} \tag{9}
+z_s(f)=\frac{1}{Y_s(f)} \qquad (9)
 ```
 
 The resulting surface impedance $z_s$ relates pressure to the average air velocity perpendicular to the treated surface and has units of $\mathrm{Pa\cdot s/m}$. It represents the mixed resonator banks as one continuous acoustic boundary, used to calculate absorption and later in finite-element simulations. This homogenized representation describes the surface’s acoustic response, not the physical arrangement of individual cells.
@@ -125,7 +125,7 @@ To determine absorption, the model compares the liner’s surface impedance with
 For sound arriving at angle $\theta$, measured from the surface normal, the absorption coefficient is
 
 ```math
-\alpha(f,\theta) = 1-\left| \frac{z_s(f)\cos\theta-\rho c} {z_s(f)\cos\theta+\rho c} \right|^2. \tag{10}
+\alpha(f,\theta) = 1-\left| \frac{z_s(f)\cos\theta-\rho c} {z_s(f)\cos\theta+\rho c} \right|^2. \qquad (10)
 ```
 
 Here, $\alpha=0$ means complete reflection and $\alpha=1$ complete absorption. Normal incidence corresponds to $\theta=0$, meaning sound arrives perpendicular to the surface. The angle-dependent expression assumes a locally reacting liner, where its surface impedance describes the local pressure–velocity relationship without resolving sound propagation between neighboring cells.
@@ -133,7 +133,7 @@ Here, $\alpha=0$ means complete reflection and $\alpha=1$ complete absorption. N
 Rather than treating all sound as arriving from one direction, the reduced-order model assumes diffuse incidence. It therefore combines the angle-dependent responses into a diffuse-field absorption coefficient:
 
 ```math
-\alpha_{\mathrm{diffuse}}(f) = \int_0^{\pi/2} \alpha(f,\theta)\sin(2\theta)\,\mathrm{d}\theta. \tag{11}
+\alpha_{\mathrm{diffuse}}(f) = \int_0^{\pi/2} \alpha(f,\theta)\sin(2\theta)\,\mathrm{d}\theta. \qquad (11)
 ```
 
 The weighting $\sin(2\theta)$ accounts for each angular interval’s contribution to the incident acoustic power. Thus, Eq. (10) describes absorption at a particular frequency and arrival angle, while Eq. (11) gives the averaged absorption used by the scorer.
@@ -143,7 +143,7 @@ The implementation calculates this response on a fine frequency grid and interpo
 The model estimates the interior noise reduction using a reverberant energy-balance approximation: for fixed acoustic input power, mean-square pressure is inversely proportional to effective absorption area. For available wall area $S$ and treated fraction $\phi$, the effective absorption areas before $(A_{0,b})$ and after $(A_{1,b})$ treatment are
 
 ```math
-\begin{aligned} A_{0,b} &=S(\alpha_{\mathrm{bare}}+\kappa), \\ A_{1,b} &=S\left[ \phi\alpha_{\ell,b} +(1-\phi)\alpha_{\mathrm{bare}} +\kappa \right] \end{aligned} \tag{12}
+\begin{aligned} A_{0,b} &=S(\alpha_{\mathrm{bare}}+\kappa), \\ A_{1,b} &=S\left[ \phi\alpha_{\ell,b} +(1-\phi)\alpha_{\mathrm{bare}} +\kappa \right] \end{aligned} \qquad (12)
 ```
 
 Here, $\alpha_{\mathrm{bare}}$ is assumed bare-wall absorption and $\kappa$ represents assumed background absorption. Treatment replaces bare-wall absorption over the fraction $\phi$; it does not change the physical wall area.
@@ -151,7 +151,7 @@ Here, $\alpha_{\mathrm{bare}}$ is assumed bare-wall absorption and $\kappa$ repr
 The predicted reduction in band $b$ follows from the absorption-area ratio:
 
 ```math
-\mathrm{NR}_b = 10\log_{10} \left( \frac{A_{1,b}}{A_{0,b}} \right) \tag{13}
+\mathrm{NR}_b = 10\log_{10} \left( \frac{A_{1,b}}{A_{0,b}} \right) \qquad (13)
 ```
 
 A positive band reduction indicates lower predicted mean-square pressure after treatment. A negative value indicates higher predicted pressure, occurring when the modeled liner absorbs less than the bare wall it replaces.
@@ -159,7 +159,7 @@ A positive band reduction indicates lower predicted mean-square pressure after t
 To combine the bands, the model first calculates each band’s share of the source energy:
 
 ```math
-w_b = \frac{10^{L_b/10}} {\sum_j 10^{L_j/10}}. \tag{14}
+w_b = \frac{10^{L_b/10}} {\sum_j 10^{L_j/10}}. \qquad (14)
 ```
 
 Here, $L_b$ is the source level in band $b$, and the denominator sums the energy contributions across all eight evaluated bands. The weights sum to one, so a larger $w_b$ means that band contains a larger share of the evaluated source energy. These weights cover 50–250 Hz, not the complete launch-noise spectrum.
@@ -167,7 +167,7 @@ Here, $L_b$ is the source level in band $b$, and the denominator sums the energy
 The model then converts each band’s reduction back into a remaining-energy ratio, $10^{-\mathrm{NR}_b/10}$. These ratios are combined using the source-energy weights and converted back to decibels:
 
 ```math
-\Delta L = -10\log_{10} \left( \sum_b w_b\,10^{-\mathrm{NR}_b/10} \right) \tag{15}
+\Delta L = -10\log_{10} \left( \sum_b w_b\,10^{-\mathrm{NR}_b/10} \right) \qquad (15)
 ```
 
 This combines acoustic energies rather than averaging decibel reductions. Improvements in bands containing more source energy therefore have greater influence on the overall result.
@@ -175,7 +175,7 @@ This combines acoustic energies rather than averaging decibel reductions. Improv
 The predicted reduction also depends on bare-wall absorption and background loss, which are uncertain modeling inputs. For the same candidate geometry and wall coverage, the model recalculates $\Delta L$ across several prescribed combinations of these inputs. It retains the lowest result as the robust score:
 
 ```math
-\Delta L_{\mathrm{robust}} = \min_{(\alpha_{\mathrm{bare}},\kappa)\in\mathcal{U}} \Delta L(\alpha_{\mathrm{bare}},\kappa). \tag{16}
+\Delta L_{\mathrm{robust}} = \min_{(\alpha_{\mathrm{bare}},\kappa)\in\mathcal{U}} \Delta L(\alpha_{\mathrm{bare}},\kappa). \qquad (16)
 ```
 
 Here, $\mathcal{U}$ is the finite set of bare-wall absorption and background-loss settings tested. For example, if the settings predict reductions of 3.8, 3.2, and 2.7 dB, the robust score is 2.7 dB. This is the least favorable prediction within the tested settings, not a guarantee covering every physical uncertainty.
@@ -189,13 +189,13 @@ The acoustic model describes how a resonator’s geometry determines its respons
 Because each bank is intended to absorb sound near a particular frequency, the search chooses its tuning frequency $f_{0,i}$ together with its neck radius $r_i$ and neck length $L_i$. Instead of also choosing a cavity volume independently, the model calculates the volume required for that combination to resonate at the selected frequency. Rearranging Eq. (4) gives
 
 ```math
-V_{c,i} = \frac{S_{n,i}}{L_{\mathrm{eff},i}} \left( \frac{c}{2\pi f_{0,i}} \right)^2 \tag{17}
+V_{c,i} = \frac{S_{n,i}}{L_{\mathrm{eff},i}} \left( \frac{c}{2\pi f_{0,i}} \right)^2 \qquad (17)
 ```
 
 The search also chooses a cavity depth $D$, shared by all four banks. Assuming square cavity footprints, each bank's calculated cavity volume then determines its cell size:  
 
 ```math
-s_i=\sqrt{\frac{V_{c,i}}{D}} \tag{18}
+s_i=\sqrt{\frac{V_{c,i}}{D}} \qquad (18)
 ```
 
 Thus, cavity volume and cell size follow from the selected tuning, neck dimensions, and depth. Larger footprints mean fewer cells fit within a given treated area. The search must therefore also choose how much area to allocate to each bank, while construction thicknesses affect the liner’s modeled mass.
@@ -546,13 +546,13 @@ LinerGen and CMA-ES supply the resonator geometry and bank area shares, while th
 On the treated wall, surface impedance relates acoustic pressure to normal air velocity:
 
 ```math
-p=z_s(f)\,v_n \tag{19}
+p=z_s(f)\,v_n \qquad (19)
 ```
 
 FEM applies this relationship as an impedance boundary condition. Internally, the solver uses the dimensionless normalized admittance
 
 ```math
-\beta(f)=\frac{\rho c}{z_s(f)} \tag{20}
+\beta(f)=\frac{\rho c}{z_s(f)} \qquad (20)
 ```
 
 Unlike the reduced-order scorer, FEM uses the complex impedance directly rather than first converting it into diffuse-field absorption.
@@ -560,7 +560,7 @@ Unlike the reduced-order scorer, FEM uses the complex impedance directly rather 
 Inside the cavity, the solver uses the axisymmetric Helmholtz equation:
 
 ```math
-\frac{1}{r}\frac{\partial}{\partial r} \left(r\frac{\partial p}{\partial r}\right) + \frac{\partial^2p}{\partial z^2} + k^2(1-\mathrm{i}\eta)p = 0 \tag{21}
+\frac{1}{r}\frac{\partial}{\partial r} \left(r\frac{\partial p}{\partial r}\right) + \frac{\partial^2p}{\partial z^2} + k^2(1-\mathrm{i}\eta)p = 0 \qquad (21)
 ```
 
 Here, $p(r,z;f)$ denotes the complex acoustic pressure amplitude at radial position $r$ and axial position $z$, evaluated at frequency $f$. FEM solves for this pressure field separately at each evaluated frequency. Its magnitude describes the amplitude of the pressure oscillation, while its phase describes the timing. The axisymmetric model assumes no variation around the circumference.
@@ -570,7 +570,7 @@ The acoustic wavenumber is $k=2\pi f/c$, where $c$ is sound speed. The dimension
 The reduced-order model represents these losses through the effective absorption area $A_{\mathrm{other}}=\kappa S$. FEM converts that same assumed absorption area into a distributed loss factor:
 
 ```math
-\eta(f)= C_{\eta}\frac{A_{\mathrm{other}}}{Vf}= C_{\eta}\frac{\kappa S}{Vf}, \qquad C_{\eta}\approx13.66 \ \mathrm{m/s} \tag{22}
+\eta(f)= C_{\eta}\frac{A_{\mathrm{other}}}{Vf}= C_{\eta}\frac{\kappa S}{Vf}, \qquad C_{\eta}\approx13.66 \ \mathrm{m/s} \qquad (22)
 ```
 
 Here, $S$ is the available wall area, $V$ is the cavity’s fluid volume, and $f$ is the evaluated frequency. The coefficient $C_{\eta}$ follows from matching a small-loss decay approximation to the Sabine reverberation-time relationship. This is an equivalent representation of assumed background absorption, not an independently measured damping value.
@@ -591,13 +591,13 @@ Pressure is approximated over the triangular elements, converting Eq. (21) and i
 Solving the mesh-based system gives the complex pressure amplitude throughout the air region at each evaluated frequency. Because pressure varies with position, the model summarizes each field by averaging its squared magnitude over the cavity’s fluid volume. This calculation is performed separately for the untreated and treated configurations:
 
 ```math
-P(f)=\frac{1}{V}\int_V |p(\mathbf{x};f)|^2\mathrm{d}V \tag{23}
+P(f)=\frac{1}{V}\int_V |p(\mathbf{x};f)|^2\mathrm{d}V \qquad (23)
 ```
 
 Here, $V$ is the fluid volume and $\mathbf{x}$ denotes position within it. Whereas $p(\mathbf{x};f)$ describes the local pressure response, $P(f)$ summarizes the response across the air domain. Comparing the untreated and treated averages then gives the predicted noise reduction at that frequency:  
 
 ```math
-\mathrm{NR}_{b,\mathrm{FEM}} = 10\log_{10} \left( \frac{P_{\mathrm{bare}}(f_b)} {P_{\mathrm{treated}}(f_b)} \right) \tag{24}
+\mathrm{NR}_{b,\mathrm{FEM}} = 10\log_{10} \left( \frac{P_{\mathrm{bare}}(f_b)} {P_{\mathrm{treated}}(f_b)} \right) \qquad (24)
 ```
 
 The band reductions enter the same source-energy-weighted calculation used to obtain $\Delta L$ earlier. Thus, the two models calculate the same type of overall reduction, but obtain their band reductions differently: the reduced-order model uses an absorption-area approximation, while FEM uses spatial pressure solutions.
@@ -683,7 +683,7 @@ The vehicle FEM uses the acoustic formulation introduced earlier with Eqs. (19)-
 The payload surface is treated as acoustically rigid: air cannot move through it. This gives the boundary condition
 
 ```math
-\frac{\partial p}{\partial n}=0 \tag{25}
+\frac{\partial p}{\partial n}=0 \qquad (25)
 ```
 
 where $p$ is complex acoustic pressure and $n$ denotes the direction normal to the surface. The model therefore captures the payload’s obstruction and reflection of sound, but not its structural vibration.
@@ -702,7 +702,7 @@ Figure 9 compares the untreated and treated pressure amplitudes at 200 Hz for bo
 To quantify the change across the air domain, rather than at individual locations, the calculation compares the volume-averaged squared pressure amplitudes:
 
 ```math
-\mathrm{NR}_{b}^{\mathrm{FEM}} = 10\log_{10} \left( \frac{ \left\langle |p_{\mathrm{bare},b}|^2 \right\rangle_V }{ \left\langle |p_{\mathrm{treated},b}|^2 \right\rangle_V } \right) \tag{26}
+\mathrm{NR}_{b}^{\mathrm{FEM}} = 10\log_{10} \left( \frac{ \left\langle |p_{\mathrm{bare},b}|^2 \right\rangle_V }{ \left\langle |p_{\mathrm{treated},b}|^2 \right\rangle_V } \right) \qquad (26)
 ```
 
 Here, $\langle\cdot\rangle_V$ denotes averaging over the air volume, and $b$ identifies the evaluated frequency band. For the 200 Hz fields shown in Figure 9, Eq. (26) gives reductions of 5.83 dB for Falcon 9 and 5.36 dB for Atlas I. However, these are single-frequency results. The overall reduction combines all eight evaluated bands using the source-energy weights defined earlier.
@@ -737,13 +737,13 @@ Within this domain, OpenFOAM’s pimpleFoam solver calculates time-dependent, in
 The solver determines the velocity and pressure fields by enforcing conservation of mass,
 
 ```math
-\nabla\cdot\mathbf{u}=0 \tag{27}
+\nabla\cdot\mathbf{u}=0 \qquad (27)
 ```
 
 and momentum,
 
 ```math
-\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u} = -\frac{1}{\rho}\nabla p_{\mathrm{flow}} + \nu\nabla^2\mathbf{u} \tag{28}
+\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u} = -\frac{1}{\rho}\nabla p_{\mathrm{flow}} + \nu\nabla^2\mathbf{u} \qquad (28)
 ```
 
 where $\mathbf{u}$ is fluid velocity, $p_{\mathrm{flow}}$ is pressure, and $\nu$ is kinematic viscosity. The laminar formulation includes viscous effects but does not model thermal losses, three-dimensional turbulent motion, or compressible acoustic propagation through the fairing.
@@ -751,13 +751,13 @@ where $\mathbf{u}$ is fluid velocity, $p_{\mathrm{flow}}$ is pressure, and $\nu$
 OpenFOAM supplies pressure and flow histories, and the project’s post-processing code converts these into impedance. Pressure is averaged over two sampling planes on opposite sides of the neck. Because the incompressible solver stores kinematic pressure, the physical pressure difference is recovered using
 
 ```math
-\Delta p(t) = \rho \left[ p_{\mathrm{kin,up}}(t) - p_{\mathrm{kin,down}}(t) \right] \tag{29}
+\Delta p(t) = \rho \left[ p_{\mathrm{kin,up}}(t) - p_{\mathrm{kin,down}}(t) \right] \qquad (29)
 ```
 
 The simulated volume flow rate through the neck gives its cross-section-averaged velocity:
 
 ```math
-u_n(t)=\frac{\dot V(t)}{S_n} \tag{30}
+u_n(t)=\frac{\dot V(t)}{S_n} \qquad (30)
 ```
 
 where $\dot V$ is the volume flow rate through the full circular neck and $S_n$ is its opening area. The wedge flow rate is scaled to the full circumference before this calculation.
@@ -765,7 +765,7 @@ where $\dot V$ is the volume flow rate through the full circular neck and $S_n$ 
 The code fits sine and cosine components at the forcing frequency to obtain the complex amplitudes of pressure difference and velocity. Their ratio gives the fundamental-frequency impedance:
 
 ```math
-z_{\mathrm{CFD}} = \frac{\widehat{\Delta p}}{\widehat{u}_n} = R_{\mathrm{CFD}} + \mathrm{i}X_{\mathrm{CFD}} \tag{31}
+z_{\mathrm{CFD}} = \frac{\widehat{\Delta p}}{\widehat{u}_n} = R_{\mathrm{CFD}} + \mathrm{i}X_{\mathrm{CFD}} \qquad (31)
 ```
 
 Here, hats denote complex amplitudes, $R_{\mathrm{CFD}}$ is resistance, and $X_{\mathrm{CFD}}$ is reactance. This pressure-to-velocity impedance has units of $\mathrm{Pa\cdot s/m}$, unlike the cell impedance $Z_a$, which relates pressure to volume flow rate.
@@ -785,13 +785,13 @@ The correction involves two connected calculations. First, each bank’s resista
 For each bank, the additional resistance relative to the validated low-amplitude reference is
 
 ```math
-\Delta R_i(U) = \max\left[ 0,\, R_{\mathrm{CFD},i}(U)-R_{\mathrm{ref},i} \right] \tag{32}
+\Delta R_i(U) = \max\left[ 0,\, R_{\mathrm{CFD},i}(U)-R_{\mathrm{ref},i} \right] \qquad (32)
 ```
 
 The corresponding reactance change is represented as an additional inertance:
 
 ```math
-\Delta M_i(U) = \frac{ X_{\mathrm{CFD},i}(U)-X_{\mathrm{ref},i} }{ \omega_{0,i} } \tag{33}
+\Delta M_i(U) = \frac{ X_{\mathrm{CFD},i}(U)-X_{\mathrm{ref},i} }{ \omega_{0,i} } \qquad (33)
 ```
 
 Here, $U$ is neck-velocity amplitude and $\omega_{0,i}=2\pi f_{0,i}$. Subtracting the low-amplitude reference isolates the modeled amplitude-dependent change while retaining the baseline damping assumption of $Q=15$. It does not experimentally calibrate that assumption.
@@ -799,7 +799,7 @@ Here, $U$ is neck-velocity amplitude and $\omega_{0,i}=2\pi f_{0,i}$. Subtractin
 These corrections describe a range of velocities, but the FEM boundary requires a correction evaluated at the bank’s operating point. The calculation therefore finds the velocity $U_i^*$ at which the corrected impedance and prescribed forcing pressure satisfy
 
 ```math
-U_i^* \left| S_{n,i}Z_{a,i}^{\mathrm{linear}}(\omega_{0,i}) + \Delta R_i(U_i^*) + \mathrm{i}\omega_{0,i}\Delta M_i(U_i^*) \right| = p_{\mathrm{peak},i} \tag{34}
+U_i^* \left| S_{n,i}Z_{a,i}^{\mathrm{linear}}(\omega_{0,i}) + \Delta R_i(U_i^*) + \mathrm{i}\omega_{0,i}\Delta M_i(U_i^*) \right| = p_{\mathrm{peak},i} \qquad (34)
 ```
 
 Here, $p_{\mathrm{peak},i}$ is the prescribed forcing-pressure amplitude associated with the bank’s tuning frequency. The expression inside the magnitude is the corrected pressure-to-neck-velocity impedance.
@@ -818,7 +818,7 @@ Figure 11 shows how the CFD correction changes the predicted neck response for F
 At the accepted operating velocity, the corrected cell impedance becomes
 
 ```math
-Z_{a,i}^{\mathrm{corrected}}(\omega) = Z_{a,i}^{\mathrm{linear}}(\omega) + \frac{ \Delta R_i(U_i^*) + \mathrm{i}\omega\Delta M_i(U_i^*) }{ S_{n,i} } \tag{35}
+Z_{a,i}^{\mathrm{corrected}}(\omega) = Z_{a,i}^{\mathrm{linear}}(\omega) + \frac{ \Delta R_i(U_i^*) + \mathrm{i}\omega\Delta M_i(U_i^*) }{ S_{n,i} } \qquad (35)
 ```
 
 Dividing by neck area converts the CFD correction from pressure per velocity to the cell model’s pressure-per-volume-flow convention. Representing the reactance correction as $\omega\Delta M_i$ extends it across the evaluated frequencies. This is a modeling assumption rather than a CFD measurement at every frequency.
@@ -845,7 +845,7 @@ Three velocities were chosen from that bank’s validated sweep: a low velocity,
 Each variant was compared with its corresponding nominal case. Resistance and reactance differences were normalized by the nominal impedance magnitude:
 
 ```math
-e_R = \max_{c\in\mathcal{C}} \frac{ \left|R_c^{\mathrm{variant}}-R_c^{\mathrm{nominal}}\right| }{ \left|z_c^{\mathrm{nominal}}\right| }, \qquad e_X = \max_{c\in\mathcal{C}} \frac{ \left|X_c^{\mathrm{variant}}-X_c^{\mathrm{nominal}}\right| }{ \left|z_c^{\mathrm{nominal}}\right| } \tag{36}
+e_R = \max_{c\in\mathcal{C}} \frac{ \left|R_c^{\mathrm{variant}}-R_c^{\mathrm{nominal}}\right| }{ \left|z_c^{\mathrm{nominal}}\right| }, \qquad e_X = \max_{c\in\mathcal{C}} \frac{ \left|X_c^{\mathrm{variant}}-X_c^{\mathrm{nominal}}\right| }{ \left|z_c^{\mathrm{nominal}}\right| } \qquad (36)
 ```
 
 Here, $\mathcal{C}$ is the prescribed set of five comparisons. Normalization by the full impedance magnitude avoids dividing by a resistance or reactance component that may be close to zero. Both members of each comparison must provide usable estimates before a complete sensitivity allowance can be established.
