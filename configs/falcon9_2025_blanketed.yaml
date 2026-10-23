@@ -1,0 +1,56 @@
+# Falcon 9 physical scenario (remediation §5.1) — AUTHORITATIVE single source of truth.
+# A_wall / volume / A_other are DERIVED from geometry at load time (src/casef_v2/scenarios.py);
+# derived values are NOT stored here. Spectrum is the VERBATIM published Falcon 9 1/3-octave table
+# (dB ref 20 uPa), transcribed from the project's launch_environments.py (SpaceX Falcon User's Guide).
+name: falcon9_2025_blanketed
+is_vehicle: true
+
+geometry:            # metres; REPRESENTATIVE approximation (matches the production interior FEM)
+  R_fair: 2.6        # from SpaceX published 5.2 m outer diameter (interior radius assumption)
+  H_barrel: 6.7      # MODELLING ASSUMPTION (barrel/nose split not published)
+  H_total: 13.1      # SpaceX published fairing height
+  kind: representative_axisymmetric_cone_approximation
+  provenance: >
+    SpaceX publishes 5.2 m OD (-> R_fair 2.6 m interior) and 13.1 m height. The 6.7 m barrel/nose split
+    and the conical nose are modelling assumptions (no verified Falcon interior CAD). Derived lined wall
+    area 165.878 m^2 is the MODELED representative interior wall area, NOT the exact real Falcon surface;
+    mass therefore applies to the representative modeled geometry.
+
+source:
+  name: "Falcon 9 fairing acoustic MPE (with acoustic blankets)"
+  revision: "2025-05-09"
+  url: "https://www.spacex.com/media/falcon-users-guide-2025-05-09.pdf"
+  blankets: present
+  fill_factor: 0.60
+  table_page: "Table 5-5, page 35, West Range, with blankets, 60% fill factor (1/3-octave; OASPL 131.4 dB West / 131.3 dB East; the 50-250 Hz band values are equal between ranges)"
+  range_site: "West Range (LC-4E / Vandenberg column)"
+  notes: >
+    VERBATIM published 1/3-octave table (per launch_environments.py 'Falcon 9'). Acoustic MPE WITH
+    blankets at 60% fill factor. See scenario_semantics below for the frozen blanket/liner relationship.
+
+# FROZEN blanket/source semantics (review round 3 finding 5; owner decision 2026-09-26). This block is
+# LOADED into PhysicalScenario.semantics (ClaimSemantics) and is machine-enforced by the claim ledger and
+# verify_release -- unlike comments. "Falcon-with-blankets MPE-weighted incremental-treatment scenario":
+# the published interior MPE is held FIXED for frequency weighting + CFD forcing; the model estimates the
+# liner's RELATIVE dOASPL vs its residual untreated-wall baseline (alpha_bare=0.05); it does NOT model the
+# blankets, predict an absolute post-treatment SPL, or claim the liner replaces/stacks on the blankets.
+semantics:
+  id: falcon_with_blankets_mpe_weighted_incremental_treatment
+  metric: relative_dOASPL_only              # report only relative dOASPL, never "131.4 - dOASPL"
+  absolute_post_treatment_spl_allowed: false
+  validated_retrofit_claim_allowed: false
+  blankets_modelled: false                  # blanket absorption is NOT in the wall model
+  blanket_replacement_claim_allowed: false  # replace/augment framings need a no-blanket source (out of scope)
+  alpha_bare_source: modelling_assumption   # alpha_bare=0.05 is an assumption, not a SpaceX property
+  kappa_source: modelling_assumption
+
+band_hz: [50, 63, 80, 100, 125, 160, 200, 250]
+spl_dB:  [120.0, 120.0, 119.8, 120.5, 121.5, 122.0, 121.5, 120.5]   # Falcon 9 (NOT Ariane 6)
+oaspl_dB: 131.4                # listed all-frequency OASPL; in-band (50-250 Hz) = 129.83 dB (consistent)
+pressure_ref_uPa: 20.0
+
+alpha_bare_nominal: 0.05
+alpha_bare_range: [0.02, 0.10]
+kappa_nominal: 0.23270570707355803        # A_other/A_wall, applied CONSISTENTLY to the derived A_wall
+kappa_eval_range: [0.20270570707355803, 0.262705707073558]   # historical nominal +/- 0.03 (unchanged)
+Q_fixed: 15.0

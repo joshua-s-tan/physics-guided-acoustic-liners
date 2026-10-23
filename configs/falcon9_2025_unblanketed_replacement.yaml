@@ -1,0 +1,72 @@
+# Falcon 9 physical scenario WITHOUT acoustic blankets (owner decision 2026-09-29). TRANSCRIBED ONLY -- NOT YET
+# USED by any pipeline, study, manifest, CFD case or verdict. It is to be scored only AFTER the cVAE-CMA method
+# is frozen (development controls + untouched synthetic final test), so it cannot influence the method choice.
+# The existing blanketed scenario (configs/falcon9_2025_blanketed.yaml, "blanketed incremental") is kept
+# unchanged: it is pinned by hash in the v2.3 study manifest and the L2 CFD plan.
+#
+# Spectrum: VERBATIM SpaceX Falcon 1/3-octave MPE table (dB ref 20 uPa). Energy-consistency check (the check
+# that caught the earlier Ariane-copy defect): computed OASPL West 137.858 dB vs published 137.9; East 137.562
+# vs published 137.6. In-band (50-250 Hz): West 136.16 dB, East 135.83 dB (blanketed West: 129.83 dB).
+name: falcon9_2025_unblanketed_replacement
+is_vehicle: true
+
+geometry:            # metres; SAME representative approximation as the blanketed scenario (same standard fairing)
+  R_fair: 2.6        # from SpaceX published 5.2 m outer diameter (interior radius assumption)
+  H_barrel: 6.7      # MODELLING ASSUMPTION (barrel/nose split not published)
+  H_total: 13.1      # SpaceX published fairing height
+  kind: representative_axisymmetric_cone_approximation
+  provenance: >
+    SpaceX publishes 5.2 m OD (-> R_fair 2.6 m interior) and 13.1 m height. The 6.7 m barrel/nose split
+    and the conical nose are modelling assumptions (no verified Falcon interior CAD). Derived lined wall
+    area is the MODELED representative interior wall area, NOT the exact real Falcon surface; mass
+    therefore applies to the representative modeled geometry.
+
+source:
+  name: "Falcon 9 standard fairing acoustic MPE (P95/50), WITHOUT acoustic blankets"
+  revision: "2025-05-09"
+  url: "https://www.spacex.com/media/falcon-users-guide-2025-05-09.pdf"
+  blankets: absent
+  fill_factor: 0.60
+  statistic: "P95/50 MPE envelope (not a measured flight realization; qualification-test margin NOT included)"
+  table_page: "Figure 5-4 / Table 5-6, page 36, without acoustic blankets, 60% fill factor, Western and Eastern Range (1/3-octave; OASPL 137.9 dB West / 137.6 dB East)"
+  range_site: "West Range column is the primary forcing (spl_dB); the East Range column is a second source corner (range_spectra.east); a final design must survive both"
+  companion_table: "Table 5-5 (page 35) = same fairing WITH blankets (configs/falcon9_2025_blanketed.yaml). Their difference is the 'difference between SpaceX's published blanket and no-blanket MPE envelopes', NOT a measured blanket insertion loss."
+  notes: >
+    Use as the authoritative frequency weighting and forcing envelope only: do not call it a measured
+    flight realization, do not infer phase or spatial pressure variation, do not report an absolute
+    post-liner flight spectrum.
+
+# Machine-enforced claim policy ("Falcon unblanketed replacement-treatment scenario"): the model estimates the
+# liner's RELATIVE dOASPL vs an assumed untreated-wall baseline (alpha_bare) in a fairing with no blankets.
+semantics:
+  id: falcon_unblanketed_mpe_weighted_replacement_treatment
+  metric: relative_dOASPL_only              # report only relative dOASPL, never "137.9 - dOASPL"
+  absolute_post_treatment_spl_allowed: false
+  validated_retrofit_claim_allowed: false
+  blankets_modelled: false                  # there are no blankets in this scenario; none are modelled
+  blanket_replacement_claim_allowed: false  # "instead of blankets" performance equivalence is NOT established
+  alpha_bare_source: modelling_assumption   # alpha_bare=0.05 is an assumption, not a SpaceX property
+  kappa_source: modelling_assumption
+
+band_hz: [50, 63, 80, 100, 125, 160, 200, 250]
+spl_dB:  [122.0, 122.5, 123.5, 124.5, 127.7, 129.3, 129.8, 129.5]   # WEST Range, no blankets (Table 5-6)
+oaspl_dB: 137.9                # listed all-frequency OASPL (West); in-band (50-250 Hz) = 136.16 dB (consistent)
+pressure_ref_uPa: 20.0
+
+# Full verbatim Table 5-6 (1/3-octave, 31.5 Hz - 10 kHz), both ranges, for provenance and the East source corner.
+range_spectra:
+  band_hz_full: [31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000,
+                 2500, 3150, 4000, 5000, 6300, 8000, 10000]
+  west_full_dB: [120.5, 121.5, 122.0, 122.5, 123.5, 124.5, 127.7, 129.3, 129.8, 129.5, 128.0, 126.0, 124.0, 122.0,
+                 119.5, 117.8, 116.4, 114.5, 113.0, 111.3, 110.2, 109.0, 107.5, 106.0, 104.0, 102.0]
+  east_full_dB: [118.0, 119.5, 120.0, 120.0, 121.0, 123.3, 127.7, 129.3, 129.8, 129.5, 128.0, 126.0, 124.0, 122.0,
+                 119.5, 117.8, 116.4, 114.5, 113.0, 111.3, 110.2, 109.0, 107.5, 106.0, 104.0, 102.0]
+  west_oaspl_published_dB: 137.9
+  east_oaspl_published_dB: 137.6
+  east_band_dB: [120.0, 120.0, 121.0, 123.3, 127.7, 129.3, 129.8, 129.5]   # 50-250 Hz, East Range
+
+alpha_bare_nominal: 0.05
+alpha_bare_range: [0.02, 0.10]
+kappa_nominal: 0.23270570707355803        # same modelled A_other/A_wall as the blanketed scenario (same fairing)
+kappa_eval_range: [0.20270570707355803, 0.262705707073558]
+Q_fixed: 15.0

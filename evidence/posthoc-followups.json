@@ -1,0 +1,507 @@
+{
+ "schema": "acoustic-liner/posthoc-followups/1",
+ "file": "posthoc-followups.json",
+ "purpose": "The three post-hoc vehicle follow-ups (docs/POST-HOC-FOLLOWUPS-REPORT.md): what each decided, with the values it decided on. Every earlier verdict is unchanged; these stages are reported beside them.",
+ "protocols": {
+  "docs/CFD-RESOLUTION-FOLLOWUP-PROTOCOL.md": "9e26133def10a274a118bf65ee9ad70c940ae17f721a5e8b1dd3ccbf99ed940f",
+  "docs/FALCON-HIGH-SPEED-PAIR-PROTOCOL.md": "ad2a98633915de137dd9cb5e4e6f6037ba2b8f3d06fcaadb3734b19dc1f2153d",
+  "docs/FALCON-BOUNDED-SENSITIVITY-PROTOCOL.md": "b4bdec64f96a5f4dc626ddd5015913398ab27d5c190d2bf9de58af289b26bb84"
+ },
+ "sources": {
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/resolution_followup/_rows.json": {
+   "sha256": "1d33a062d9608dd7f5e7c89d812c27971048aaa24b5201a6511293a0d1d962d1",
+   "bytes": 6884
+  },
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/resolution_followup/_chain.json": {
+   "sha256": "804c8fd09505eedb9b4936173f1f33a523ca3ae0bb3bbbef2ed7e1f08f0c2037",
+   "bytes": 7344
+  },
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/resolution_followup/_resolution_fem.json": {
+   "sha256": "f51e3e4a394620b731234bd7f9842d1fa038847d4cd0fb9cd6d7eb77157a10de",
+   "bytes": 4678
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/resolution_followup/_compare.json": {
+   "sha256": "ddfcbe46a3cb0c03da785374d49a9d08be26718b0137bc65a6373cc9f03364db",
+   "bytes": 7368
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/highspeed_pair/runs/_plan.json": {
+   "sha256": "801e9d42e028eff00e453e2a25e4930bd9787c708fcce63bf8080f403ba4b0fe",
+   "bytes": 1183
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/highspeed_pair/_pair_rows.json": {
+   "sha256": "424bda94f1060f4e1a153589f9b2e886aa42e12986592a46b42610057e59e6ad",
+   "bytes": 15137
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/bounded_sensitivity/_bounded.json": {
+   "sha256": "a356e7f4489f16b557419147ad868cedf1da7e67a62662907cccc2eb1e0d23d6",
+   "bytes": 2898
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/bounded_sensitivity/_bounded_fem.json": {
+   "sha256": "4606b29b0a8ca60b70bca65e05c6399b3cecd107f0ab4c4f16ec09223671bf39",
+   "bytes": 4155
+  }
+ },
+ "stages": [
+  {
+   "stage": "resolution_followup",
+   "vehicle": "atlas",
+   "protocol": "docs/CFD-RESOLUTION-FOLLOWUP-PROTOCOL.md",
+   "outcome": "PASS",
+   "target_db": 0.9213,
+   "interval": {
+    "F01": 2.36239805550023,
+    "F01_hi": 2.3776630796930047,
+    "L": 2.3519051881560973,
+    "M": 0.0023583951926453572,
+    "S_down": 0.008134472151487326,
+    "S_up": 7.979066280139335e-05,
+    "U": 2.3801012655484515
+   },
+   "reasons": [],
+   "replaced_rows": {
+    "atlas_b1_u20": {
+     "estimate": {
+      "R": 16.000727175041973,
+      "h_R": 0.7786999074269106,
+      "X": 56.888677405572686,
+      "h_X": 0.5930876132855634,
+      "u_amp": 19.97457092944184,
+      "z_mag": 59.09606490355718,
+      "trend_R": 0.005673944209581013,
+      "trend_X": 0.0013263130026076383,
+      "half_shift": 0.010563115507822725,
+      "thd_p": 0.044550289272243734,
+      "thd_u": 2.859909300109723e-05,
+      "n_blocks": 12,
+      "cycles": 25,
+      "discarded": 13
+     },
+     "gates": {
+      "distortion": true,
+      "other_validator_checks": true,
+      "stable_means": true,
+      "trend": true,
+      "uncertainty": true
+     },
+     "overlap_ok": true,
+     "accepted": true
+    },
+    "atlas_b1_u21.8": {
+     "estimate": {
+      "R": 18.146030046395346,
+      "h_R": 1.5807420644393977,
+      "X": 57.065234798887005,
+      "h_X": 0.5551833878406807,
+      "u_amp": 21.772036402879678,
+      "z_mag": 59.88087699004405,
+      "trend_R": 0.03037258287343236,
+      "trend_X": 0.010743157374116354,
+      "half_shift": 0.005888269162194383,
+      "thd_p": 0.04923352577187257,
+      "thd_u": 9.19625328207098e-05,
+      "n_blocks": 12,
+      "cycles": 25,
+      "discarded": 13
+     },
+     "gates": {
+      "distortion": true,
+      "other_validator_checks": true,
+      "stable_means": true,
+      "trend": true,
+      "uncertainty": true
+     },
+     "overlap_ok": true,
+     "accepted": true
+    }
+   },
+   "banks": {
+    "b0": "adequate",
+    "b1": "adequate",
+    "b2": "adequate",
+    "b3": "adequate"
+   },
+   "selection": {
+    "match": true,
+    "bank": 0,
+    "forcing": "broadband",
+    "u_star": 5.141
+   },
+   "sensitivity": {
+    "envelope": {
+     "norm_dR": 0.007047475425769621,
+     "norm_dX": 0.016536811387004195
+    },
+    "fem_nominal_0p1": 2.365680988243301,
+    "fem_envelope_combos_0p1": [
+     {
+      "fem_robust_db": 2.361611636208962,
+      "relabel_status": "complete",
+      "sign_R": 1,
+      "sign_X": 1
+     },
+     {
+      "fem_robust_db": 2.3657607789061026,
+      "relabel_status": "complete",
+      "sign_R": 1,
+      "sign_X": -1
+     },
+     {
+      "fem_robust_db": 2.357546516091814,
+      "relabel_status": "complete",
+      "sign_R": -1,
+      "sign_X": 1
+     },
+     {
+      "fem_robust_db": 2.359922626782538,
+      "relabel_status": "complete",
+      "sign_R": -1,
+      "sign_X": -1
+     }
+    ],
+    "escalation_triggers": []
+   },
+   "fem_primary": {
+    "R+X+": {
+     "broadband": {
+      "0.1": 2.3683240621639343,
+      "0.15": 2.3706824573565797,
+      "0.2": 2.3701825799138856
+     },
+     "resonant_tone": {
+      "0.1": 2.376039916985076,
+      "0.15": 2.378117081648096,
+      "0.2": 2.376968182196266
+     }
+    },
+    "R+X-": {
+     "broadband": {
+      "0.1": 2.3678178374402203,
+      "0.15": 2.370057936013491,
+      "0.2": 2.3694025640378893
+     },
+     "resonant_tone": {
+      "0.1": 2.3759331120226785,
+      "0.15": 2.377952928892377,
+      "0.2": 2.3767341213132083
+     }
+    },
+    "R-X+": {
+     "broadband": {
+      "0.1": 2.363287738536398,
+      "0.15": 2.365615382732745,
+      "0.2": 2.365101534845333
+     },
+     "resonant_tone": {
+      "0.1": 2.3776630796930047,
+      "0.15": 2.3798673410976594,
+      "0.2": 2.3788986571096067
+     }
+    },
+    "R-X-": {
+     "broadband": {
+      "0.1": 2.36239805550023,
+      "0.15": 2.3646004069468867,
+      "0.2": 2.363922542868642
+     },
+     "resonant_tone": {
+      "0.1": 2.3774324817862738,
+      "0.15": 2.3795648472398465,
+      "0.2": 2.3785063587932087
+     }
+    },
+    "central": {
+     "broadband": {
+      "0.1": 2.365680988243301,
+      "0.15": 2.367963336858271,
+      "0.2": 2.367376766373282
+     },
+     "resonant_tone": {
+      "0.1": 2.376619974472822,
+      "0.15": 2.378719219146689,
+      "0.2": 2.3776103529959123
+     }
+    }
+   },
+   "lost_fixed_point": []
+  },
+  {
+   "stage": "resolution_followup",
+   "vehicle": "falcon",
+   "protocol": "docs/CFD-RESOLUTION-FOLLOWUP-PROTOCOL.md",
+   "outcome": "UNRESOLVED",
+   "role": "diagnostic (domain length at 16.2 m/s); no verdict computed",
+   "runs": {
+    "falcon_control": {
+     "H_ext_mm": 0.0,
+     "estimate": {
+      "R": 11.695187881409254,
+      "h_R": 1.5163691962918626,
+      "X": 31.43034860748486,
+      "h_X": 1.816265932859257,
+      "u_amp": 16.178226584647522,
+      "z_mag": 33.53571578436171,
+      "trend_R": 0.08084358915729388,
+      "trend_X": 0.048640039693120175,
+      "half_shift": 0.0575197297854945,
+      "thd_p": 0.028748036854132488,
+      "thd_u": 0.0001274957695941181,
+      "n_blocks": 12,
+      "cycles": 25,
+      "discarded": 13
+     },
+     "gates": {
+      "distortion": true,
+      "other_validator_checks": true,
+      "stable_means": false,
+      "trend": false,
+      "uncertainty": true
+     }
+    },
+    "falcon_long": {
+     "H_ext_mm": 40.0,
+     "estimate": {
+      "R": 10.779162629312683,
+      "h_R": 1.7861370596059885,
+      "X": 30.94586246452502,
+      "h_X": 3.1067315219748983,
+      "u_amp": 16.179076298617456,
+      "z_mag": 32.76944843390669,
+      "trend_R": 0.023910776146979035,
+      "trend_X": 0.1144696207302055,
+      "half_shift": 0.04742870372332084,
+      "thd_p": 0.02279808272370887,
+      "thd_u": 0.00010692934116786516,
+      "n_blocks": 12,
+      "cycles": 25,
+      "discarded": 13
+     },
+     "gates": {
+      "distortion": true,
+      "other_validator_checks": true,
+      "stable_means": true,
+      "trend": false,
+      "uncertainty": true
+     }
+    }
+   },
+   "reading": "doubling the domain did NOT resolve the drift (domain length not excluded)"
+  },
+  {
+   "stage": "highspeed_pair",
+   "vehicle": "falcon",
+   "protocol": "docs/FALCON-HIGH-SPEED-PAIR-PROTOCOL.md",
+   "outcome": "UNRESOLVED",
+   "case": "sens_halfdt/b3_u16.2",
+   "analysis_window": "cycles 14-113 (100)",
+   "runs": {
+    "S": {
+     "maxco": 0.5,
+     "estimate": {
+      "R": 13.534899317393025,
+      "h_R": 0.6514605400733074,
+      "X": 29.553589298534135,
+      "h_X": 0.6434788422079484,
+      "u_amp": 16.17876745703421,
+      "z_mag": 32.5055093785407,
+      "trend_R": 0.04182093513769797,
+      "trend_X": 0.028652681174030217,
+      "half_shift": 0.017935775404584513,
+      "thd_p": 0.027210842346680187,
+      "thd_u": 5.63690957019925e-05,
+      "n_blocks": 100,
+      "cycles": 113,
+      "discarded": 13
+     },
+     "gates": {
+      "distortion": true,
+      "other_validator_checks": true,
+      "stable_means": true,
+      "trend": true,
+      "uncertainty": true
+     },
+     "bound": true,
+     "accepted": true
+    },
+    "V": {
+     "maxco": 0.25,
+     "estimate": {
+      "R": 12.447809360818415,
+      "h_R": 0.6841244790475888,
+      "X": 29.47195346776903,
+      "h_X": 0.9435747664152813,
+      "u_amp": 16.178691645636107,
+      "z_mag": 31.992874192382615,
+      "trend_R": 0.006195568967489219,
+      "trend_X": 0.08461072803138134,
+      "half_shift": 0.06972303096916531,
+      "thd_p": 0.023934354473385114,
+      "thd_u": 5.856072714931999e-05,
+      "n_blocks": 100,
+      "cycles": 113,
+      "discarded": 13
+     },
+     "gates": {
+      "distortion": true,
+      "other_validator_checks": true,
+      "stable_means": false,
+      "trend": false,
+      "uncertainty": true
+     },
+     "bound": true,
+     "accepted": false
+    }
+   },
+   "pair_accepted": false,
+   "downstream": "not run: the protocol runs it only if both members are accepted"
+  },
+  {
+   "stage": "bounded_sensitivity",
+   "vehicle": "falcon",
+   "protocol": "docs/FALCON-BOUNDED-SENSITIVITY-PROTOCOL.md",
+   "outcome": "UNRESOLVED",
+   "label": "NOT BOUNDED",
+   "bound": 0.15,
+   "reasons": ["relabel incomplete under a perturbation (fixed point lost)"],
+   "sensitivity": {
+    "per_case": [
+     {
+      "case": "sens_refine/b3_u2",
+      "name": "b3_u2",
+      "norm_dR": 0.0025923176597761983,
+      "norm_dX": 0.007574132935625628,
+      "slot": "low",
+      "window": "existing"
+     },
+     {
+      "case": "sens_halfdt/b3_u2",
+      "name": "b3_u2",
+      "norm_dR": 1.0704344775333137e-05,
+      "norm_dX": 5.736834530203276e-05,
+      "slot": "low",
+      "window": "existing"
+     },
+     {
+      "case": "sens_refine/b3_u12",
+      "name": "b3_u12",
+      "norm_dR": 0.0013589711637732936,
+      "norm_dX": 0.08103727227088689,
+      "slot": "ustar",
+      "window": "last 12 cycles"
+     },
+     {
+      "case": "sens_halfdt/b3_u12",
+      "name": "b3_u12",
+      "norm_dR": 0.005151666928977178,
+      "norm_dX": 0.00902486739985585,
+      "slot": "ustar",
+      "window": "existing"
+     },
+     {
+      "case": "sens_halfdt/b3_u16.2",
+      "name": "b3_u16.2",
+      "norm_dR": 0.15,
+      "norm_dX": 0.15,
+      "slot": "high",
+      "window": "bound (protocol sec. 1)"
+     }
+    ],
+    "envelope": {
+     "norm_dR": 0.15,
+     "norm_dX": 0.15
+    },
+    "fem_nominal_0p1": 3.5521402996532228,
+    "fem_envelope_combos_0p1": [
+     {
+      "fem_robust_db": 3.2070492015462673,
+      "relabel_status": "complete",
+      "sign_R": 1,
+      "sign_X": 1
+     },
+     {
+      "fem_robust_db": 3.3879447367420603,
+      "relabel_status": "complete",
+      "sign_R": 1,
+      "sign_X": -1
+     },
+     {
+      "fem_robust_db": null,
+      "relabel_status": "incomplete",
+      "sign_R": -1,
+      "sign_X": 1
+     },
+     {
+      "fem_robust_db": null,
+      "relabel_status": "incomplete",
+      "sign_R": -1,
+      "sign_X": -1
+     }
+    ],
+    "escalation_triggers_reported": ["corrected-FEM envelope range 0.345 dB > 0.1 dB", "impedance change 0.150 of |Z| > 0.1"]
+   },
+   "fem_primary": {
+    "R+X+": {
+     "broadband": {
+      "0.1": 3.635641633317101,
+      "0.15": 3.6387692087847103,
+      "0.2": 3.6385229497456244
+     },
+     "resonant_tone": {
+      "0.1": 3.5422460892487146,
+      "0.15": 3.543893296524436,
+      "0.2": 3.5416493209359805
+     }
+    },
+    "R+X-": {
+     "broadband": {
+      "0.1": 3.640992207122278,
+      "0.15": 3.6438471303332602,
+      "0.2": 3.6433653215703483
+     },
+     "resonant_tone": {
+      "0.1": 3.545440975714586,
+      "0.15": 3.5468857362963977,
+      "0.2": 3.54447683802678
+     }
+    },
+    "R-X+": {
+     "broadband": {
+      "0.1": 3.6480963065183003,
+      "0.15": 3.6514462975588966,
+      "0.2": 3.6516191289744127
+     },
+     "resonant_tone": {
+      "0.1": 3.557024455530171,
+      "0.15": 3.5588459740271423,
+      "0.2": 3.5569914904234
+     }
+    },
+    "R-X-": {
+     "broadband": {
+      "0.1": 3.653830690547155,
+      "0.15": 3.6568702662608867,
+      "0.2": 3.6567713172411587
+     },
+     "resonant_tone": {
+      "0.1": 3.560577357546202,
+      "0.15": 3.562162902442144,
+      "0.2": 3.5601115981225195
+     }
+    },
+    "central": {
+     "broadband": {
+      "0.1": 3.6455305860949263,
+      "0.15": 3.6486232649477857,
+      "0.2": 3.648470923600917
+     },
+     "resonant_tone": {
+      "0.1": 3.5521402996532228,
+      "0.15": 3.5537654386093958,
+      "0.2": 3.551638785748916
+     }
+    }
+   },
+   "lost_fixed_point": [],
+   "note": "interval not reported: a lowered-resistance perturbation lost the fixed point"
+  }
+ ]
+}

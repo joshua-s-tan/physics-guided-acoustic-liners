@@ -1,0 +1,358 @@
+{
+ "schema": "linergen-public-evidence/1",
+ "file": "falcon9-vehicle.json",
+ "origin": {
+  "repository": "original development repository (private)",
+  "tag": "physgen-v1-evidence",
+  "commit": "03b79447ab63250900f50342672de565514f458e"
+ },
+ "sources": {
+  "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json": {
+   "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+   "bytes": 7950
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json": {
+   "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+   "bytes": 64567
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/statistical_followup/verdict/verdict.json": {
+   "sha256": "5debff394e75c7a10cb8ae9372ac282213506bbd54fa7304f3834d9ae014d01a",
+   "bytes": 13920
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/supplemental_statistical/verdict/verdict.json": {
+   "sha256": "ceaac17efd0e04b24c5ef5bf3cd5e40fdf8ab93b123efda0a556088caf97109c",
+   "bytes": 6919
+  },
+  "vehicle_v1/falcon9_2025_unblanketed_v2/verdict/verdict.json": {
+   "sha256": "0dc0dc01357d010d41a15a704019ce500bb759453da03e251e0a16c4bb63c419",
+   "bytes": 3570
+  }
+ },
+ "purpose": "falcon9_2025_unblanketed_v2: selected design, initial FEM, CFD-corrected FEM, uncertainty bounds, failed checks and the formal verdicts. Intermediate CFD records are not included.",
+ "scenario_name": "falcon9_2025_unblanketed_v2",
+ "vehicle": "falcon",
+ "target_dB": 0.9213,
+ "semantics": "relative dOASPL on published MPE / test envelopes; not measured flight spectra",
+ "selected_design": {
+  "design": {
+   "D": 0.04999999067297969,
+   "face_t": 0.0005099096840528424,
+   "groups": [
+    {
+     "L_neck": 0.03857333956124795,
+     "Q": 15.0,
+     "area_frac": 0.47374288931905134,
+     "f0": 122.37285734537012,
+     "r_neck": 0.009933815775789792
+    },
+    {
+     "L_neck": 0.026696829565112712,
+     "Q": 15.0,
+     "area_frac": 0.20754549691476087,
+     "f0": 159.91050694661368,
+     "r_neck": 0.006177664783826702
+    },
+    {
+     "L_neck": 0.03338409094856514,
+     "Q": 15.0,
+     "area_frac": 0.17099212698315447,
+     "f0": 200.42531675178245,
+     "r_neck": 0.00499123016341897
+    },
+    {
+     "L_neck": 0.00512627841739253,
+     "Q": 15.0,
+     "area_frac": 0.1477194867830334,
+     "f0": 251.5458693264093,
+     "r_neck": 0.009952275459203828
+    }
+   ],
+   "wall_t": 0.00040533666428740217
+  },
+  "design_sha256": "0680bb2dffcaaa755c3fba49c97246e11d4a082b01702fcb8add082b4226c82e",
+  "geometry_hash": "4269cbace065f35d83a09a28c593fe40406e62b71ef632e443d1545d64fc7c63",
+  "mass_kg": 287.4188808088783,
+  "mass_limit": {
+   "m_total_kg": 400.0,
+   "rule": "Falcon mass limit 400.0 kg"
+  },
+  "coverage": 1.0,
+  "payload_case": "equal_blocked_area_solid",
+  "source_corner": "west_range",
+  "source_corners": ["west_range", "east_range"],
+  "primary_dOASPL": 3.228538440987783,
+  "secondary_dOASPL": 3.772767078933323,
+  "seeds": [0, 1, 2, 3, 4],
+  "selected_seed": 1,
+  "selection_rule": "max robust exact dOASPL; ties: lower mass, lower coverage, smaller geometry hash; FEM not used",
+  "budget": 2048,
+  "budget_note": "5 independent 2048-call runs (not one 10240-call search)",
+  "checkpoint_model_sha256": "40318b3b79974c693a017dc3b63e9132e71ee3bc9456c30880554c65232a5a45",
+  "scenario_hash": "b019791a1e68ff7391892e2a4279055e9e80e3ee51bc93eb679439edbe48cdb7",
+  "runs": [
+   {
+    "best_val": 3.2285335371960553,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 284.6083510434366,
+    "geometry_hash": "bb1a201b923f5f5f2c1555f55ae123e67b143027f199fbc0e0cf3a3670be7b05"
+   },
+   {
+    "best_val": 3.228538440987783,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 287.4188808088783,
+    "geometry_hash": "4269cbace065f35d83a09a28c593fe40406e62b71ef632e443d1545d64fc7c63"
+   },
+   {
+    "best_val": 3.2285339952474534,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 280.0639544619683,
+    "geometry_hash": "2b5d12da0552957427c8e7cd06fd49b301a7d4f1979fdc668c8e13fc67e390c1"
+   },
+   {
+    "best_val": 3.2285341758673782,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 272.20294756097394,
+    "geometry_hash": "2ad4666df554cc76cdeed8b67e2b1ad6e60ffc080f334bdf0ed2e377a9161c63"
+   },
+   {
+    "best_val": 3.228529721564282,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 270.5994959672609,
+    "geometry_hash": "e62a68a612ffee8502af88efc2c72b1b68469911e016e9eedfea3a6638f89125"
+   }
+  ]
+ },
+ "initial_fem": {
+  "authoritative": "west_range|equal_blocked_area_solid at mesh 0.1 m",
+  "mesh_sizes": [0.2, 0.15, 0.1],
+  "convergence": {
+   "east_range|equal_blocked_area_solid": {
+    "abs_0p15_vs_0p1": 0.01194970263557682,
+    "abs_0p2_vs_0p1": 0.022865023273812568,
+    "by_mesh": {
+     "0.1": 4.513080059914752,
+     "0.15": 4.525029762550329,
+     "0.2": 4.535945083188564
+    }
+   },
+   "east_range|keep_in_annulus": {
+    "abs_0p15_vs_0p1": 0.009706951608047465,
+    "abs_0p2_vs_0p1": 0.013742620524376914,
+    "by_mesh": {
+     "0.1": 3.1543980821837474,
+     "0.15": 3.164105033791795,
+     "0.2": 3.1681407027081243
+    }
+   },
+   "west_range|equal_blocked_area_solid": {
+    "abs_0p15_vs_0p1": 0.010430008592620776,
+    "abs_0p2_vs_0p1": 0.020370131772013966,
+    "by_mesh": {
+     "0.1": 3.988447023166979,
+     "0.15": 3.9988770317595996,
+     "0.2": 4.008817154938993
+    }
+   },
+   "west_range|keep_in_annulus": {
+    "abs_0p15_vs_0p1": 0.0057151215634743124,
+    "abs_0p2_vs_0p1": 0.006345537610901175,
+    "by_mesh": {
+     "0.1": 2.8322005640534975,
+     "0.15": 2.837915685616972,
+     "0.2": 2.8385461016643987
+    }
+   }
+  },
+  "a_other_note": "A_other is an assumed effective background-loss term that may include payload-associated losses; it is not measured payload absorption",
+  "finalist_sha256": "d4dd79a1eb20c0c72427f38e72f0a46776eadfc0afa00e1e5276c9a091c8f47e"
+ },
+ "verdicts": [
+  {
+   "stage": "nominal",
+   "schema": "casef_vehicle_verdict/1",
+   "outcome": "UNRESOLVED",
+   "target_db": 0.9213,
+   "interval": null,
+   "reasons": ["CFD result missing", "operating-point rerun merge stopped (cfd_rerun_24c): unresolved banks ['b1', 'b2', 'b3'], rerun states {'b1_u12': 'needs_extend', 'b2_u11.1': 'needs_extend', 'b2_u6': 'needs_extend', 'b3_u6': 'needs_extend'}"],
+   "primary": {
+    "interval": null,
+    "payload_case": "equal_blocked_area_solid",
+    "source_corner": "west_range"
+   },
+   "prereg": "docs/VEHICLE-VERDICT-RULE-PREREG.md",
+   "prereg_sha256": "d14cbe772273fca32247fa3e91e4ff1d00291d3418cd2de8a427cc97a8f23b39",
+   "basis": "simulation-based (oracle search, payload-resolving FEM, OpenFOAM neck CFD); not experimentally validated and not flight-qualified"
+  },
+  {
+   "stage": "statistical_followup",
+   "schema": "casef_vehicle_statistical_followup/1",
+   "outcome": "STATISTICAL FOLLOW-UP UNRESOLVED",
+   "target_db": 0.9213,
+   "interval": null,
+   "reasons": ["sens_halfdt/b3_u16.2 variant: ['stable_means']", "sens_halfdt/b3_u16.2 source: ['stable_means', 'trend', 'uncertainty']"],
+   "post_result": true,
+   "protocol": "docs/VEHICLE-STATISTICAL-FOLLOWUP-PROTOCOL.md",
+   "protocol_sha256": "b30945fd606aeef995018a7f40d7878fc2f0fe5c2aa1de66217cecf058c3eebe",
+   "basis": "Simulation-based (oracle search, payload-resolving FEM, OpenFOAM neck CFD); not experimentally validated and not flight-qualified"
+  },
+  {
+   "stage": "supplemental_statistical (post hoc)",
+   "schema": "casef_falcon_supplemental_verdict/1",
+   "outcome": "SUPPLEMENTAL UNRESOLVED",
+   "target_db": 0.9213,
+   "interval": null,
+   "reasons": ["supplemental targeted sensitivity failed the block gates: [{'case': 'sens_refine/b3_u12', 'failed': ['stable_means', 'trend']}, {'case': 'sens_halfdt/b3_u16.2', 'failed': ['trend']}]", "supplemental targeted sensitivity selection / result missing"],
+   "primary_outcome": "UNRESOLVED",
+   "post_hoc": true,
+   "protocol": "docs/FALCON-SUPPLEMENTAL-STATISTICAL-IMPEDANCE-PROTOCOL.md",
+   "basis": "Simulation-based (oracle search, payload-resolving FEM, OpenFOAM neck CFD); not experimentally validated and not flight-qualified"
+  }
+ ],
+ "cfd_corrected_fem": {
+  "source_stage": "supplemental_statistical",
+  "note": "reported, not a verdict",
+  "primary": {
+   "R+X+": {
+    "broadband": {
+     "0.1": 3.635641633317101,
+     "0.15": 3.6387692087847103,
+     "0.2": 3.6385229497456244
+    },
+    "resonant_tone": {
+     "0.1": 3.5422460892487146,
+     "0.15": 3.543893296524436,
+     "0.2": 3.5416493209359805
+    }
+   },
+   "R+X-": {
+    "broadband": {
+     "0.1": 3.640992207122278,
+     "0.15": 3.6438471303332602,
+     "0.2": 3.6433653215703483
+    },
+    "resonant_tone": {
+     "0.1": 3.545440975714586,
+     "0.15": 3.5468857362963977,
+     "0.2": 3.54447683802678
+    }
+   },
+   "R-X+": {
+    "broadband": {
+     "0.1": 3.6480963065183003,
+     "0.15": 3.6514462975588966,
+     "0.2": 3.6516191289744127
+    },
+    "resonant_tone": {
+     "0.1": 3.557024455530171,
+     "0.15": 3.5588459740271423,
+     "0.2": 3.5569914904234
+    }
+   },
+   "R-X-": {
+    "broadband": {
+     "0.1": 3.653830690547155,
+     "0.15": 3.6568702662608867,
+     "0.2": 3.6567713172411587
+    },
+    "resonant_tone": {
+     "0.1": 3.560577357546202,
+     "0.15": 3.562162902442144,
+     "0.2": 3.5601115981225195
+    }
+   },
+   "central": {
+    "broadband": {
+     "0.1": 3.6455305860949263,
+     "0.15": 3.6486232649477857,
+     "0.2": 3.648470923600917
+    },
+    "resonant_tone": {
+     "0.1": 3.5521402996532228,
+     "0.15": 3.5537654386093958,
+     "0.2": 3.551638785748916
+    }
+   }
+  },
+  "other_cases": {
+   "east_range|equal_blocked_area_solid": {
+    "broadband": {
+     "0.1": 4.024969250597144,
+     "0.15": 4.027894415392767,
+     "0.2": 4.026714480562898
+    },
+    "resonant_tone": {
+     "0.1": 3.892162580934876,
+     "0.15": 3.893317747915484,
+     "0.2": 3.889841547589457
+    }
+   },
+   "east_range|keep_in_annulus": {
+    "broadband": {
+     "0.1": 2.946054687936714,
+     "0.15": 2.9524412021625586,
+     "0.2": 2.950546928918147
+    },
+    "resonant_tone": {
+     "0.1": 2.8799096523045717,
+     "0.15": 2.8850156776844975,
+     "0.2": 2.8812576624901736
+    }
+   },
+   "west_range|keep_in_annulus": {
+    "broadband": {
+     "0.1": 2.703245043133876,
+     "0.15": 2.706926811514883,
+     "0.2": 2.7031235537775746
+    },
+    "resonant_tone": {
+     "0.1": 2.6615084728339684,
+     "0.15": 2.664263332249186,
+     "0.2": 2.6589769241793837
+    }
+   }
+  }
+ },
+ "uncertainty": {
+  "impedance_banks": {
+   "b0": {
+    "U_star_hi": 7.552,
+    "U_star_lo": 5.151,
+    "status": "adequate",
+    "valid": [2.0, 6.0, 10.8, 12.0, 15.4, 24.1]
+   },
+   "b1": {
+    "U_star_hi": 8.793,
+    "U_star_lo": 6.135,
+    "status": "adequate",
+    "valid": [2.0, 6.0, 12.0, 14.8, 20.0, 21.1]
+   },
+   "b2": {
+    "U_star_hi": 8.407,
+    "U_star_lo": 5.622,
+    "status": "adequate",
+    "valid": [2.0, 6.0, 11.1, 12.0, 15.9, 20.0]
+   },
+   "b3": {
+    "U_star_hi": 9.325,
+    "U_star_lo": 6.082,
+    "status": "adequate",
+    "valid": [2.0, 6.0, 12.0, 16.2]
+   }
+  },
+  "failed_cases": [
+   {
+    "case": "sens_refine/b3_u12",
+    "failed": ["stable_means", "trend"]
+   },
+   {
+    "case": "sens_halfdt/b3_u16.2",
+    "failed": ["trend"]
+   }
+  ]
+ }
+}

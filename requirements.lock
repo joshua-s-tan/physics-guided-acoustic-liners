@@ -1,0 +1,149 @@
+# requirements.lock -- pinned dependency lock.
+# lock-status: final
+# FINAL transitive lock: pip-compile (pip-tools 7.6.1) resolved requirements.txt to its full transitive closure
+# CONSTRAINED to the INSTALLED versions that produced the release results (Python 3.11.9). Regenerate with:
+#   python -m pip freeze > constraints.txt
+#   python -m piptools compile requirements.txt -c constraints.txt --output-file requirements.lock
+# The lock SHA-256 is captured in run provenance; interpretation and verification are documented in docs/PROVENANCE.md.
+cma==4.4.4
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+contourpy==1.3.3
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+cycler==0.12.1
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+filelock==3.20.3
+    # via
+    #   -c constraints.txt
+    #   torch
+fonttools==4.60.1
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+fsspec==2026.1.0
+    # via
+    #   -c constraints.txt
+    #   torch
+gmsh==4.15.2
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+jinja2==3.1.6
+    # via
+    #   -c constraints.txt
+    #   torch
+joblib==1.5.3
+    # via
+    #   -c constraints.txt
+    #   scikit-learn
+kiwisolver==1.4.9
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+markdown-it-py==4.0.0
+    # via
+    #   -c constraints.txt
+    #   rich
+markupsafe==3.0.3
+    # via
+    #   -c constraints.txt
+    #   jinja2
+matplotlib==3.10.6
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+mdurl==0.1.2
+    # via
+    #   -c constraints.txt
+    #   markdown-it-py
+meshio==5.3.5
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+mpmath==1.3.0
+    # via
+    #   -c constraints.txt
+    #   sympy
+networkx==3.6.1
+    # via
+    #   -c constraints.txt
+    #   torch
+numpy==2.2.6
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+    #   cma
+    #   contourpy
+    #   matplotlib
+    #   meshio
+    #   scikit-fem
+    #   scikit-learn
+    #   scipy
+packaging==25.0
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+pillow==11.3.0
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+    #   matplotlib
+pygments==2.19.2
+    # via
+    #   -c constraints.txt
+    #   rich
+pyparsing==3.2.5
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+python-dateutil==2.9.0.post0
+    # via
+    #   -c constraints.txt
+    #   matplotlib
+pyyaml==6.0.3
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+rich==14.1.0
+    # via
+    #   -c constraints.txt
+    #   meshio
+scikit-fem==12.0.2
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+scikit-learn==1.8.0
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+scipy==1.16.2
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+    #   scikit-fem
+    #   scikit-learn
+six==1.17.0
+    # via
+    #   -c constraints.txt
+    #   python-dateutil
+sympy==1.14.0
+    # via
+    #   -c constraints.txt
+    #   torch
+threadpoolctl==3.6.0
+    # via
+    #   -c constraints.txt
+    #   scikit-learn
+torch==2.10.0
+    # via
+    #   -c constraints.txt
+    #   -r requirements.txt
+typing-extensions==4.15.0
+    # via
+    #   -c constraints.txt
+    #   torch

@@ -1,0 +1,56 @@
+{
+  "checkpoint_sha256": "c9440e7bc8181c8b875e26dc5508e3449bb54ad0165140ff1b0bade304d0c782",
+  "coverage": 0.4321,
+  "dataset_fingerprint": "fb67d309116cc06ac4ea2a8b4829746acfad0bf0a03a283da3297d71ed892143",
+  "fem_corner": [
+    "kappa_hi",
+    "low"
+  ],
+  "fem_robust_dB": 1.0085,
+  "geometry": {
+    "D": 0.049867750615256404,
+    "face_t": 0.0005156723351017028,
+    "groups": [
+      {
+        "L_neck": 0.038103524325375074,
+        "Q": 15.0,
+        "area_frac": 0.5216972202355866,
+        "cavity_volume": 0.0011645961547496297,
+        "f0": 120.7513269256526,
+        "r_neck": 0.009996735932120561
+      },
+      {
+        "L_neck": 0.03711830681357218,
+        "Q": 15.0,
+        "area_frac": 0.22127676533407772,
+        "cavity_volume": 7.465884021415409e-05,
+        "f0": 158.86792055470255,
+        "r_neck": 0.0029096916447938943
+      },
+      {
+        "L_neck": 0.027606190042319626,
+        "Q": 15.0,
+        "area_frac": 0.1398810224852757,
+        "cavity_volume": 0.00011456517746202114,
+        "f0": 250.05285525352082,
+        "r_neck": 0.005292069731789466
+      },
+      {
+        "L_neck": 0.014299149020661029,
+        "Q": 15.0,
+        "area_frac": 0.1171449919450599,
+        "cavity_volume": 0.00015077137068688154,
+        "f0": 199.6965299908273,
+        "r_neck": 0.0036250302320282504
+      }
+    ],
+    "wall_t": 0.0008032015677952352
+  },
+  "installed_mass_kg": 205.025,
+  "kind": "falcon_v2.1_finalist_geometry",
+  "oracle_level_dB": 1.278670296727687,
+  "scenario": "falcon9_2025_blanketed",
+  "scenario_sha256": "c4cca710bc6b63e488437557b1dae9f5985501afa03a10b7bea5d1de37d3df75",
+  "selected_tag": "L2_1.279dB",
+  "source_sha256": "e1d902c16062bbdf674118df2b14abc519be1e1783b131647fa9451d664b2205"
+}

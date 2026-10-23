@@ -1,0 +1,115 @@
+{
+ "schema": "acoustic-liner/readme-figures/1",
+ "file": "readme-figures.json",
+ "purpose": "Every README figure and its SHA-256. The figures were drawn from the study records, most of them private; their drafting scripts are kept with the private records, so a public clone cannot redraw them.",
+ "figures": [
+  {
+   "path": "docs/figures/readme/fig1_single_resonator_cell.png",
+   "label": "Figure 1",
+   "sha256": "3f947d87319237c4aec19ab0b4d446e22de22e1136f20f94af327db05a8c0da9",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig1-2_liner_in_fairing.png",
+   "label": "Figure 2",
+   "sha256": "4eb0b04c87350d76157300694231a474a914c948ca0e8cdb2b9d51f155130a1c",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig5b_linergen_network.png",
+   "label": "Figure 3",
+   "sha256": "5c217a294a5f3f6b5ed594e221235b5ead4c0ad28cd6a682967f2711b629b800",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig4_paired_improvement.png",
+   "label": "Figure 4",
+   "sha256": "54f57e053564eda4ff23d05857eca2bf7f802aea4820bd39c0e86f2815692d1a",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig4-1_fem_domain.png",
+   "label": "Figure 5",
+   "sha256": "a1e18134507a35b684b4a18b28a6c7bb6e99282080ccf8f42ad2ddecc63f8cab",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig4-2_treatment_placement.png",
+   "label": "Figure 6",
+   "sha256": "cd23c361c2a800163168334c7b2411cb97a3c85c89a88d7bafdb1a3cc60f0ebb",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig_rom_vs_fem.png",
+   "label": "Figure 7",
+   "sha256": "d3478639a0d2b3b146b4f74ceb1d8b03ff1f8c444b144e087cf1b9f3bec5340a",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig6_designs_mass.png",
+   "label": "Figure 8",
+   "sha256": "05fada4d5ca9b8cb57a0e483bc24a7cd02674ddfae228ec66ffe41aeaaa1ff08",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig7_fem_amplitude_untreated_treated.png",
+   "label": "Figure 9",
+   "sha256": "d7e6f62c75c0791a4f1442ba171e150380a8d132159498b90cd123e427d71bdf",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig5-3_cfd_domain.png",
+   "label": "Figure 10",
+   "sha256": "3c4d489eff9d8d4c56507d0287969d1689b4128d31b75cea98eac106072cff68",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig5-4_operating_velocity.png",
+   "label": "Figure 11",
+   "sha256": "d5d836981397f5024eaf56eb51cb7220c7028fcd28c5d8c79446ee9c6db068d8",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/readme/fig8_vehicle_chain.png",
+   "label": "Figure 12",
+   "sha256": "8b2ee2d1f561d76efc5b69309cbde22c440e2263fc75e56e7ae3bf947cebd5c7",
+   "command": null,
+   "script": null,
+   "inputs": [],
+   "regenerable_from_public_clone": false
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+# Falcon 9 standard fairing WITHOUT acoustic blankets -- corrected, provenance-classified scenario
+# (schema casef_vehicle_scenario/1, loader src/casef_v2/vehicle_scenarios.py). DEFINED AND TESTED ONLY: no vehicle
+# PHYS-GEN, finalist selection, FEM or CFD has used it. It supersedes configs/falcon9_2025_unblanketed_replacement.yaml,
+# which is kept byte-identical because frozen studies pin it (it used the superseded 13.1 m representative height).
+schema: casef_vehicle_scenario/1
+name: falcon9_2025_unblanketed_v2
+scenario_kind: published_mpe_representative_vehicle_scenario
+is_vehicle: true
+supersedes:
+  file: configs/falcon9_2025_unblanketed_replacement.yaml
+  reason: "13.1 m height corrected to the published 13.2 m; spectra stored only as the full published table; every field classified"
+
+sources:
+  falcon_ug:
+    title: "Falcon User's Guide"
+    revision: "2025-05-09"
+    url: "https://www.spacex.com/assets/media/falcon-users-guide-2025-05-09.pdf"
+    publisher: "Space Exploration Technologies Corp."
+
+geometry:
+  outer_diameter_m: {value: 5.2, units: m, class: published, source: falcon_ug, ref: "Section 4.1, printed page 16: standard fairing 5.2 m outer diameter"}
+  H_total_m: {value: 13.2, units: m, class: published, source: falcon_ug, ref: "Section 4.1, printed page 16: standard fairing 13.2 m height"}
+  R_fair_m: {value: 2.6, units: m, class: derived, derivation: "0.5 * outer_diameter_m", limitation: "outer-radius-derived proxy for the representative interior model; not a published interior radius"}
+  H_barrel_m: {value: 6.7, units: m, class: modelling_assumption, limitation: "barrel/nose split is not published; no Falcon interior CAD (historical representative value, unchanged)"}
+  kind: {value: representative_axisymmetric_cone_approximation, class: modelling_assumption, limitation: "cylinder + conical nose; not the real fairing interior shape"}
+  barrel_nose_rule: {value: "cylinder of radius R_fair_m from 0 to H_barrel_m, then a cone to the tip at H_total_m; R_fair_m and H_total_m from the published outer dimensions, H_barrel_m assumed", class: modelling_assumption, limitation: "derived wall area 166.636 m^2 and volume 188.303 m^3 are of the representative model, not the real Falcon interior"}
+
+spectrum:
+  band_hz_full: {value: [31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 10000], units: Hz, class: published, source: falcon_ug, ref: "Figure 5-4 / Table 5-6, printed page 36 (1/3-octave centre frequencies)"}
+  pressure_ref_uPa: {value: 20.0, units: uPa, class: published, source: falcon_ug, ref: "Table 5-6: dB ref 20 uPa"}
+  model_bands_hz: {value: [50, 63, 80, 100, 125, 160, 200, 250], units: Hz, class: study_policy, limitation: "the oracle/FEM design band; levels are SELECTED from the full published table at load time"}
+  oaspl_tolerance_dB: {value: 0.15, units: dB, class: study_policy, limitation: "published OASPL printed to 0.1 dB; West/East differ by 0.3 dB, so a swapped corner fails"}
+
+source_conditions:
+  primary:
+    id: {value: west_range, class: published, source: falcon_ug, ref: "Table 5-6, Western Range column"}
+    role_policy: {value: "primary forcing condition", class: study_policy, limitation: "study choice, not a SpaceX instruction"}
+    levels_dB: {value: [120.5, 121.5, 122.0, 122.5, 123.5, 124.5, 127.7, 129.3, 129.8, 129.5, 128.0, 126.0, 124.0, 122.0, 119.5, 117.8, 116.4, 114.5, 113.0, 111.3, 110.2, 109.0, 107.5, 106.0, 104.0, 102.0], units: dB, class: published, source: falcon_ug, ref: "Table 5-6, printed page 36, Western Range, no acoustic blankets"}
+    oaspl_published_dB: {value: 137.9, units: dB, class: published, source: falcon_ug, ref: "Table 5-6 OASPL, Western Range"}
+  secondary:
+    id: {value: east_range, class: published, source: falcon_ug, ref: "Table 5-6, Eastern Range column"}
+    role_policy: {value: "required second source corner; a design must survive both", class: study_policy, limitation: "study choice, not a SpaceX instruction"}
+    levels_dB: {value: [118.0, 119.5, 120.0, 120.0, 121.0, 123.3, 127.7, 129.3, 129.8, 129.5, 128.0, 126.0, 124.0, 122.0, 119.5, 117.8, 116.4, 114.5, 113.0, 111.3, 110.2, 109.0, 107.5, 106.0, 104.0, 102.0], units: dB, class: published, source: falcon_ug, ref: "Table 5-6, printed page 36, Eastern Range, no acoustic blankets"}
+    oaspl_published_dB: {value: 137.6, units: dB, class: published, source: falcon_ug, ref: "Table 5-6 OASPL, Eastern Range"}
+  blanket_state: {value: absent, class: published, source: falcon_ug, ref: "Figure 5-4 / Table 5-6: Falcon 9 standard fairing without acoustic blankets"}
+  statistic: {value: "P95/50 maximum predicted environment (MPE) envelope; not a measured flight spectrum", class: published, source: falcon_ug, ref: "Section 5.3.4.2 / Table 5-6"}
+  fill_factor: {value: 0.60, units: "1", class: published, source: falcon_ug, ref: "Table 5-6: 60% fill factor"}
+
+acoustics:
+  alpha_bare_nominal: {value: 0.05, units: "1", class: modelling_assumption, limitation: "untreated-wall absorption assumed; not a SpaceX property"}
+  alpha_bare_range: {value: [0.02, 0.10], units: "1", class: modelling_assumption, limitation: "assumed uncertainty interval"}
+  A_other_assumed_m2: {value: 38.600834317990035, units: m^2, class: modelling_assumption, label: historical_untraced_assumption, limitation: "historical absolute other-absorption area preserved: old kappa 0.23270570707355803 x old 13.1 m modeled wall area 165.878 m^2; its original derivation is not documented in the repository"}
+  kappa_nominal: {value: 0.23164775635990886, units: "1", class: derived, derivation: "A_other_assumed_m2 / lined wall area of the corrected 13.2 m representative geometry (166.6359 m^2)", limitation: "modelling assumption carried by A_other"}
+  kappa_half_width: {value: 0.03, units: "1", class: study_policy, limitation: "project kappa uncertainty policy, recentred on the corrected kappa"}
+  kappa_eval_range: {value: [0.20164775635990886, 0.2616477563599089], units: "1", class: derived, derivation: "kappa_nominal -+ kappa_half_width"}
+  Q_fixed: {value: 15.0, units: "1", class: modelling_assumption, limitation: "fixed resonator Q assumption"}
+  payload_impedance: {value: "payload is a rigid obstruction cut out of the FEM domain (payload_model); payload and other absorption enter only through A_other / kappa", class: modelling_assumption, limitation: "no published payload impedance"}
+  gas_state: {value: "standard air as in the oracle (rho 1.204 kg/m^3, c 343 m/s)", class: modelling_assumption, limitation: "flight gas pressure/temperature not modelled"}
+
+payload_geometry:
+  primary_figure: {value: "Figure C-3: Cube Arrangement Keep-In Volume for Constellation Payloads (No Acoustic Blankets); one payload and its adapter per volume, 4 volumes per tier", class: published, source: falcon_ug, ref: "Appendix C, Figure C-3, printed page 102"}
+  requirement_link: {value: "Payloads flying with these constellation configurations must meet the Falcon 9 no-blanket acoustic MPE (Section 5.3.4.2)", class: published, source: falcon_ug, ref: "Section 4.1.6, Table 4-3 note, printed page 20"}
+  figure_c3_dimensions_in:
+    arc_radius: {value: 87.00, units: in, class: published, source: falcon_ug, ref: "Figure C-3: R 87.00"}
+    chord_height: {value: 119.33, units: in, class: published, source: falcon_ug, ref: "Figure C-3: 119.33 (between arc end points)"}
+    inner_face_length: {value: 49.69, units: in, class: published, source: falcon_ug, ref: "Figure C-3: 49.69 (flat inner face)"}
+    face_to_arc_end: {value: 34.82, units: in, class: published, source: falcon_ug, ref: "Figure C-3: 34.82 (inner face to arc end point)"}
+    face_to_arc_tangent: {value: 58.50, units: in, class: published, source: falcon_ug, ref: "Figure C-3: (58.50) reference (inner face to arc extremity)"}
+    tier_axial_extent: {value: 46.00, units: in, class: published, source: falcon_ug, ref: "Figure C-3: 46.00 (side view, per tier)"}
+  figure_c3_dimensions_mm:
+    arc_radius: {value: 2209.80, units: mm, class: published, source: falcon_ug, ref: "Figure C-3: [2209.80]"}
+    chord_height: {value: 3030.86, units: mm, class: published, source: falcon_ug, ref: "Figure C-3: [3030.86]"}
+    inner_face_length: {value: 1262.03, units: mm, class: published, source: falcon_ug, ref: "Figure C-3: [1262.03]"}
+    face_to_arc_end: {value: 884.42, units: mm, class: published, source: falcon_ug, ref: "Figure C-3: [884.42]"}
+    face_to_arc_tangent: {value: 1485.90, units: mm, class: published, source: falcon_ug, ref: "Figure C-3: [(1485.90)]"}
+    tier_axial_extent: {value: 1168.40, units: mm, class: published, source: falcon_ug, ref: "Figure C-3: [1168.40]"}
+  volumes_per_tier: {value: 4, units: "1", class: published, source: falcon_ug, ref: "Figure C-3 note 1: 4 volumes total per tier"}
+  tiers_modelled: {value: 5, units: "1", class: modelling_assumption, limitation: "published maximum is 5 tiers + 1 forward payload (Table 4-3); the actual stack is not specified; axial placement is fixed in payload_model"}
+  sensitivity_cases:
+    figure_c4: {value: "Figure C-4, printed page 103: cube arrangement with 7.00 in / 177.8 mm interface intrusion (later geometric sensitivity case, not primary)", class: published, source: falcon_ug, ref: "Appendix C, Figure C-4, printed page 103"}
+    figure_c5: {value: "Figure C-5, printed page 104: octagon arrangement without blankets (later geometric sensitivity case, not primary)", class: published, source: falcon_ug, ref: "Appendix C, Figure C-5, printed page 104"}
+  axisymmetric_equivalent:
+    value: {name: axisymmetric_equivalent_of_published_constellation_keep_in_geometry, is_actual_cad: false}
+    class: derived
+    derivation: "annulus r_in..R_max over L = tiers * 46.00 in preserving blocked area A_b = 4 * A_vol, R_max = 87 in, L and V = A_b * L (vehicle_scenarios.axisymmetric_equivalent)"
+    limitation: "keep-in envelope is a permitted volume, not the spacecraft outer mould line or an acoustic surface"
+
+# FEM payload obstruction (cut out of the axisymmetric acoustic domain; loader re-derives every number)
+payload_model:
+  axial_origin: {value: "z = 0 at the fairing base plane (the FEM source plane); H_total and H_barrel are measured from it", class: modelling_assumption, limitation: "the payload attach / separation-plane station relative to the modelled base is not published"}
+  axial_placement_rule: {value: centred_in_barrel, class: modelling_assumption, limitation: "the five-tier stack is centred axially in the 6.7 m modelled cylindrical barrel; the real stack position, adapter and dispenser are not published"}
+  axial_extent_m: {value: 5.842, units: m, class: derived, derivation: "tiers_modelled * tier_axial_extent (5 x 46.00 in)"}
+  z_base_m: {value: 0.42900000000000027, units: m, class: derived, derivation: "0.5 * (H_barrel_m - axial_extent_m)"}
+  surface_condition: {value: rigid, class: modelling_assumption, limitation: "no published payload surface impedance; sound-hard surface (beta = 0); payload and other absorption stay lumped in A_other / kappa, so nothing is double counted"}
+  surface_beta: {value: [0.0, 0.0], units: "1", class: modelling_assumption, limitation: "normalized admittance (real, imag) of the rigid payload surface"}
+  primary_case: {value: equal_blocked_area_solid, class: study_policy, limitation: "a revolved annulus would be a continuous shell that the discrete four-volume tiers are not; the solid coaxial cylinder of equal blocked area is the primary representative obstruction"}
+  cases:
+    equal_blocked_area_solid:
+      rule: {value: equal_blocked_area_solid, class: study_policy, limitation: "preserves blocked cross-section area, axial extent and displaced volume of the Figure C-3 stack; not its shape"}
+      role: {value: primary, class: study_policy, limitation: "primary representative payload for vehicle FEM"}
+      r_in_m: {value: 0.0, units: m, class: derived, derivation: "solid cylinder"}
+      r_out_m: {value: 2.003072566548713, units: m, class: derived, derivation: "sqrt(A_b / pi), A_b = 4 x Figure C-3 plan area"}
+    keep_in_annulus:
+      rule: {value: keep_in_annulus, class: study_policy, limitation: "continuous revolved shell; over-blocks propagation relative to the discrete stack"}
+      role: {value: sensitivity, class: study_policy, limitation: "geometry-sensitivity case only, never the authoritative result"}
+      r_in_m: {value: 0.933228982158158, units: m, class: derived, derivation: "sqrt(R_max^2 - A_b / pi) (axisymmetric_equivalent)"}
+      r_out_m: {value: 2.2098, units: m, class: derived, derivation: "R_max = Figure C-3 arc radius 87.00 in"}
+
+semantics:
+  id: falcon_unblanketed_mpe_weighted_replacement_treatment_v2
+  metric: relative_dOASPL_only
+  absolute_post_treatment_spl_allowed: false
+  validated_retrofit_claim_allowed: false
+  blankets_modelled: false
+  blanket_replacement_claim_allowed: false
+  alpha_bare_source: modelling_assumption
+  kappa_source: modelling_assumption
+  flight_validation_claim_allowed: false
+  experimental_validation_claim_allowed: false
+  exact_vehicle_claim_allowed: false
+  retrofit_certification_claim_allowed: false

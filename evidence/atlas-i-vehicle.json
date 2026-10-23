@@ -1,0 +1,389 @@
+{
+ "schema": "linergen-public-evidence/1",
+ "file": "atlas-i-vehicle.json",
+ "origin": {
+  "repository": "original development repository (private)",
+  "tag": "physgen-v1-evidence",
+  "commit": "03b79447ab63250900f50342672de565514f458e"
+ },
+ "sources": {
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/finalist.json": {
+   "sha256": "32bf1910c6a2493e414ab340130a6481689a34dde1fd5e11bf64c15d14ad955b",
+   "bytes": 8366
+  },
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/initial_fem.json": {
+   "sha256": "2a8103b43a6f671a36ade8e92c764429ce6056cb605ab648b30863a684629926",
+   "bytes": 96382
+  },
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/statistical_followup/_stat_fem.json": {
+   "sha256": "c91cf48c3302cf4b2e2cddca80a503d1283d1f3298f12c32dc4e7672d415f087",
+   "bytes": 4199
+  },
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/statistical_followup/verdict/verdict.json": {
+   "sha256": "2364c08dbd6958935295b917040f89ab1df3e88a3f9966f980c66d60fce77b93",
+   "bytes": 12724
+  },
+  "vehicle_v1/atlas_i_14ft_representative_unblanketed/verdict/verdict.json": {
+   "sha256": "77e059185d92ee4c68fe56bdb0fdcd29fd47eef95e1845d5bb1a7c0d5e8393b2",
+   "bytes": 11328
+  }
+ },
+ "purpose": "atlas_i_14ft_representative_unblanketed: selected design, initial FEM, CFD-corrected FEM, uncertainty bounds, failed checks and the formal verdicts. Intermediate CFD records are not included.",
+ "scenario_name": "atlas_i_14ft_representative_unblanketed",
+ "vehicle": "atlas",
+ "target_dB": 0.9213,
+ "semantics": "relative dOASPL on published MPE / test envelopes; not measured flight spectra",
+ "selected_design": {
+  "design": {
+   "D": 0.04999998906362863,
+   "face_t": 0.000502275519674928,
+   "groups": [
+    {
+     "L_neck": 0.03999993217741153,
+     "Q": 15.0,
+     "area_frac": 0.5710693610909736,
+     "f0": 102.25948535840315,
+     "r_neck": 0.009998530056012981
+    },
+    {
+     "L_neck": 0.03792861837847226,
+     "Q": 15.0,
+     "area_frac": 0.20271067997819217,
+     "f0": 159.16613035335405,
+     "r_neck": 0.006364213351061511
+    },
+    {
+     "L_neck": 0.00893492291181925,
+     "Q": 15.0,
+     "area_frac": 0.12315707431649874,
+     "f0": 200.35163915528213,
+     "r_neck": 0.0074333518202136005
+    },
+    {
+     "L_neck": 0.009836884946573487,
+     "Q": 15.0,
+     "area_frac": 0.10306288461433544,
+     "f0": 250.98215200367332,
+     "r_neck": 0.00687091599316482
+    }
+   ],
+   "wall_t": 0.0004151815960862347
+  },
+  "design_sha256": "4ed21b2b1b20312d419d972955e7c8aed6fbdb44cc635026ec26dc41c80cc3e0",
+  "geometry_hash": "616f2a08caedcb5a2cfa23719d4f5a2231ba6a4eccd998782624f2c9ad651d09",
+  "mass_kg": 190.81260377147603,
+  "mass_limit": {
+   "A_wall_atlas": 118.73848754006079,
+   "A_wall_falcon": 166.63590843511687,
+   "falcon_scenario_hash": "b019791a1e68ff7391892e2a4279055e9e80e3ee51bc93eb679439edbe48cdb7",
+   "m_total_kg": 285.0249712805306,
+   "rule": "400.0 kg x A_wall_Atlas / A_wall_Falcon"
+  },
+  "coverage": 1.0,
+  "payload_case": "fill_055",
+  "source_corner": "qualification",
+  "source_corners": ["qualification", "acceptance"],
+  "primary_dOASPL": 2.098144072939865,
+  "secondary_dOASPL": 2.098144072939865,
+  "seeds": [0, 1, 2, 3, 4],
+  "selected_seed": 3,
+  "selection_rule": "max robust exact dOASPL; ties: lower mass, lower coverage, smaller geometry hash; FEM not used",
+  "budget": 2048,
+  "budget_note": "5 independent 2048-call runs (not one 10240-call search)",
+  "checkpoint_model_sha256": "40318b3b79974c693a017dc3b63e9132e71ee3bc9456c30880554c65232a5a45",
+  "scenario_hash": "6c0ace5e181c12f0230d1b62d3322cbe146c6d361fdfc88014b79c8a53ae4272",
+  "runs": [
+   {
+    "best_val": 2.098052438360966,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 232.39460692684662,
+    "geometry_hash": "4f06e6e96e1fa51b38d089481b342677f3a857191f5be1678ad31400259e8e9d"
+   },
+   {
+    "best_val": 2.0980920648040553,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 242.24418200385065,
+    "geometry_hash": "46194cdb9ec05fe0ad745bbac2266eb6fca56a0ae383f23129b6f3300ae49b71"
+   },
+   {
+    "best_val": 2.097843885842446,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 193.40646360007167,
+    "geometry_hash": "0f7b243df6261bce1c518584762fceb75f1a6c7ac4ac993b39e9459ebbe281e0"
+   },
+   {
+    "best_val": 2.098144072939865,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 190.81260377147603,
+    "geometry_hash": "616f2a08caedcb5a2cfa23719d4f5a2231ba6a4eccd998782624f2c9ad651d09"
+   },
+   {
+    "best_val": 2.098048899466672,
+    "charged": 2048,
+    "coverage": 1.0,
+    "mass": 262.84931425593044,
+    "geometry_hash": "c63c899c9c1b054bfc2fcaac10078d5f3d12b8d8463fc875f46985427c881799"
+   }
+  ]
+ },
+ "initial_fem": {
+  "authoritative": "qualification|fill_055 at mesh 0.1 m",
+  "mesh_sizes": [0.2, 0.15, 0.1],
+  "convergence": {
+   "acceptance|fill_050": {
+    "abs_0p15_vs_0p1": 0.003062859661880246,
+    "abs_0p2_vs_0p1": 0.0016985921592458375,
+    "by_mesh": {
+     "0.1": 2.4712345638601856,
+     "0.15": 2.474297423522066,
+     "0.2": 2.4695359717009397
+    }
+   },
+   "acceptance|fill_055": {
+    "abs_0p15_vs_0p1": 0.005908849376480063,
+    "abs_0p2_vs_0p1": 0.010143625413463031,
+    "by_mesh": {
+     "0.1": 2.3910189592337154,
+     "0.15": 2.3969278086101955,
+     "0.2": 2.4011625846471785
+    }
+   },
+   "acceptance|fill_060": {
+    "abs_0p15_vs_0p1": 0.009168338101596785,
+    "abs_0p2_vs_0p1": 0.0059546921889350735,
+    "by_mesh": {
+     "0.1": 2.2992192229493718,
+     "0.15": 2.3083875610509685,
+     "0.2": 2.305173915138307
+    }
+   },
+   "qualification|fill_050": {
+    "abs_0p15_vs_0p1": 0.003062859661880246,
+    "abs_0p2_vs_0p1": 0.0016985921592458375,
+    "by_mesh": {
+     "0.1": 2.4712345638601856,
+     "0.15": 2.474297423522066,
+     "0.2": 2.4695359717009397
+    }
+   },
+   "qualification|fill_055": {
+    "abs_0p15_vs_0p1": 0.005908849376480063,
+    "abs_0p2_vs_0p1": 0.010143625413463031,
+    "by_mesh": {
+     "0.1": 2.3910189592337154,
+     "0.15": 2.3969278086101955,
+     "0.2": 2.4011625846471785
+    }
+   },
+   "qualification|fill_060": {
+    "abs_0p15_vs_0p1": 0.009168338101596785,
+    "abs_0p2_vs_0p1": 0.0059546921889350735,
+    "by_mesh": {
+     "0.1": 2.2992192229493718,
+     "0.15": 2.3083875610509685,
+     "0.2": 2.305173915138307
+    }
+   }
+  },
+  "a_other_note": "A_other is an assumed effective background-loss term that may include payload-associated losses; it is not measured payload absorption",
+  "finalist_sha256": "026dafe1b889943ba43bee942f0b22cb930eb16c71498824d3d2524cdbd3452e"
+ },
+ "verdicts": [
+  {
+   "stage": "nominal",
+   "schema": "casef_vehicle_verdict/1",
+   "outcome": "UNRESOLVED",
+   "target_db": 0.9213,
+   "interval": null,
+   "reasons": ["targeted sensitivity failed closed: invalid cases [{'case': 'sens_halfdt/b0_u25.8', 'failed': ['R_converged']}]", "targeted sensitivity selection / result missing"],
+   "primary": {
+    "interval": null,
+    "payload_case": "fill_055",
+    "source_corner": "qualification"
+   },
+   "prereg": "docs/VEHICLE-VERDICT-RULE-PREREG.md",
+   "prereg_sha256": "d14cbe772273fca32247fa3e91e4ff1d00291d3418cd2de8a427cc97a8f23b39",
+   "basis": "simulation-based (oracle search, payload-resolving FEM, OpenFOAM neck CFD); not experimentally validated and not flight-qualified"
+  },
+  {
+   "stage": "statistical_followup",
+   "schema": "casef_vehicle_statistical_followup/1",
+   "outcome": "STATISTICAL FOLLOW-UP UNRESOLVED",
+   "target_db": 0.9213,
+   "interval": null,
+   "reasons": ["fixed point lost under the impedance interval: ['R-X+/broadband', 'R-X+/resonant_tone', 'R-X-/broadband', 'R-X-/resonant_tone']"],
+   "post_result": true,
+   "protocol": "docs/VEHICLE-STATISTICAL-FOLLOWUP-PROTOCOL.md",
+   "protocol_sha256": "b30945fd606aeef995018a7f40d7878fc2f0fe5c2aa1de66217cecf058c3eebe",
+   "basis": "Simulation-based (oracle search, payload-resolving FEM, OpenFOAM neck CFD); not experimentally validated and not flight-qualified"
+  }
+ ],
+ "cfd_corrected_fem": {
+  "source_stage": "statistical_followup",
+  "note": "reported, not a verdict",
+  "primary": {
+   "R+X+": {
+    "broadband": {
+     "0.1": 2.3683240621639343,
+     "0.15": 2.3706824573565797,
+     "0.2": 2.3701825799138856
+    },
+    "resonant_tone": {
+     "0.1": 2.376039916985076,
+     "0.15": 2.378117081648096,
+     "0.2": 2.376968182196266
+    }
+   },
+   "R+X-": {
+    "broadband": {
+     "0.1": 2.3678178374402203,
+     "0.15": 2.370057936013491,
+     "0.2": 2.3694025640378893
+    },
+    "resonant_tone": {
+     "0.1": 2.3759331120226785,
+     "0.15": 2.377952928892377,
+     "0.2": 2.3767341213132083
+    }
+   },
+   "central": {
+    "broadband": {
+     "0.1": 2.365680988243301,
+     "0.15": 2.367963336858271,
+     "0.2": 2.367376766373282
+    },
+    "resonant_tone": {
+     "0.1": 2.376619974472822,
+     "0.15": 2.378719219146689,
+     "0.2": 2.3776103529959123
+    }
+   }
+  },
+  "other_cases": {
+   "acceptance|fill_050": {
+    "broadband": {
+     "0.1": 2.420973484129433,
+     "0.15": 2.420523507613658,
+     "0.2": 2.410537720488286
+    },
+    "resonant_tone": {
+     "0.1": 2.4254982852343763,
+     "0.15": 2.4250126362625117,
+     "0.2": 2.414585592919546
+    }
+   },
+   "acceptance|fill_055": {
+    "broadband": {
+     "0.1": 2.365680988243301,
+     "0.15": 2.367963336858271,
+     "0.2": 2.367376766373282
+    },
+    "resonant_tone": {
+     "0.1": 2.376619974472822,
+     "0.15": 2.378719219146689,
+     "0.2": 2.3776103529959123
+    }
+   },
+   "acceptance|fill_060": {
+    "broadband": {
+     "0.1": 2.304852708317769,
+     "0.15": 2.31014743864569,
+     "0.2": 2.3004719640275924
+    },
+    "resonant_tone": {
+     "0.1": 2.323655405444847,
+     "0.15": 2.32866442943806,
+     "0.2": 2.317950026634486
+    }
+   },
+   "qualification|fill_050": {
+    "broadband": {
+     "0.1": 2.420973484129433,
+     "0.15": 2.420523507613658,
+     "0.2": 2.410537720488286
+    },
+    "resonant_tone": {
+     "0.1": 2.4254982852343763,
+     "0.15": 2.4250126362625117,
+     "0.2": 2.414585592919546
+    }
+   },
+   "qualification|fill_060": {
+    "broadband": {
+     "0.1": 2.304852708317769,
+     "0.15": 2.31014743864569,
+     "0.2": 2.3004719640275924
+    },
+    "resonant_tone": {
+     "0.1": 2.323655405444847,
+     "0.15": 2.32866442943806,
+     "0.2": 2.317950026634486
+    }
+   }
+  }
+ },
+ "uncertainty": {
+  "relabel": {
+   "R+X+": {
+    "U_star": {
+     "broadband": [5.054, 5.027, 5.728, 5.343],
+     "resonant_tone": [7.286, 7.457, 8.264, 7.918]
+    },
+    "interval": [2.3909, 2.4606],
+    "status": {
+     "broadband": "complete",
+     "resonant_tone": "complete"
+    }
+   },
+   "R+X-": {
+    "U_star": {
+     "broadband": [5.036, 5.026, 5.721, 5.332],
+     "resonant_tone": [7.269, 7.446, 8.251, 7.898]
+    },
+    "interval": [2.387, 2.4572],
+    "status": {
+     "broadband": "complete",
+     "resonant_tone": "complete"
+    }
+   },
+   "R-X+": {
+    "U_star": {
+     "broadband": [5.248, null, 5.855, 5.474],
+     "resonant_tone": [7.533, null, 8.863, 8.095]
+    },
+    "interval": null,
+    "status": {
+     "broadband": "incomplete",
+     "resonant_tone": "incomplete"
+    }
+   },
+   "R-X-": {
+    "U_star": {
+     "broadband": [5.228, null, 5.846, 5.461],
+     "resonant_tone": [7.513, null, 8.842, 8.074]
+    },
+    "interval": null,
+    "status": {
+     "broadband": "incomplete",
+     "resonant_tone": "incomplete"
+    }
+   },
+   "central": {
+    "U_star": {
+     "broadband": [5.141, 5.055, 5.787, 5.402],
+     "resonant_tone": [7.398, 7.584, 8.525, 7.996]
+    },
+    "interval": [2.3819, 2.4549],
+    "status": {
+     "broadband": "complete",
+     "resonant_tone": "complete"
+    }
+   }
+  },
+  "lost_fixed_point": ["R-X+/broadband", "R-X+/resonant_tone", "R-X-/broadband", "R-X-/resonant_tone"]
+ }
+}

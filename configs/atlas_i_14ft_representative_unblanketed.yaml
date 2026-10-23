@@ -1,0 +1,107 @@
+# Atlas I 14-ft payload fairing, WITHOUT acoustic blankets -- historical representative vehicle scenario
+# (schema casef_vehicle_scenario/1, loader src/casef_v2/vehicle_scenarios.py). DEFINED AND TESTED ONLY: not exact
+# Atlas CAD, not a flight reconstruction, not experimental validation. No vehicle PHYS-GEN, FEM or CFD has used it.
+# Active spectral source: GEVS Rev A Table C-3 (4.3 m / 14-ft class). The older Table C-2 (3.4 m / 11-ft) note is
+# historical background only.
+schema: casef_vehicle_scenario/1
+name: atlas_i_14ft_representative_unblanketed
+scenario_kind: historical_representative_vehicle_scenario
+is_vehicle: true
+
+sources:
+  gevs:
+    title: "NASA General Environmental Verification Standard (GEVS), GSFC-STD-7000, Rev A"
+    revision: "Rev A"
+    url: "https://snebulos.mit.edu/projects/reference/NASA-Generic/GEVS-SE_Rev_A.pdf"
+    publisher: "NASA Goddard Space Flight Center"
+  gd_fairing_paper:
+    title: "Ground Test Program for New Atlas Payload Fairings (M. J. Robbins, General Dynamics Space Systems Division)"
+    revision: "NTRS 19910001002 (N91-10315)"
+    url: "https://ntrs.nasa.gov/api/citations/19910001002/downloads/19910001002.pdf"
+    publisher: "NASA Technical Reports Server"
+
+geometry:
+  outer_diameter_m: {value: 4.191, units: m, class: published, source: gd_fairing_paper, ref: "Figure 1 (printed page 194): 165 in profile diameter of the 14-ft fairing (165 x 0.0254 m); GEVS fairing-class designation is 4.3 m / 14 ft"}
+  H_total_m: {value: 12.0142, units: m, class: published, source: gd_fairing_paper, ref: "Figure 1: 473 in from station 0 (interface with Centaur stub adapter forward ring) to the tip; text page 195: about 39 1/2 ft high"}
+  R_fair_m: {value: 2.0955, units: m, class: derived, derivation: "0.5 * outer_diameter_m", limitation: "external-profile-derived representative interior-radius proxy, not an exact interior radius"}
+  H_barrel_m: {value: 5.68452, units: m, class: modelling_assumption, limitation: "STA 223.8 in, the cylinder / nose-cone joint labelled in Figure 3d (printed page 198, 14-ft structural test); consistent with the text 'cone section (21 feet high)' (473 - 252 = STA 221). Figure 1 prints no transition station; the boattail is folded into the cylinder -- HOLD POINT"}
+  kind: {value: representative_axisymmetric_cone_approximation, class: modelling_assumption, limitation: "cylinder + single cone to the tip; the real fairing has a boattail, a nose cone with an intermediate joint (STA 307.8) and a nose dome"}
+  barrel_nose_rule: {value: "cylinder of radius R_fair_m from station 0 to STA 223.8 in (H_barrel_m), then a cone to the 473 in tip; the 120 in dimension in Figure 1 is the Centaur interface diameter, not a barrel length", class: modelling_assumption, limitation: "derived wall area 118.738 m^2 and volume 107.525 m^3 are of the representative model, not the real Atlas interior"}
+
+spectrum:
+  band_hz_full: {value: [25, 32, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 10000], units: Hz, class: published, source: gevs, ref: "Appendix C, Table C-3 (PDF page 154): one-third-octave centre frequencies"}
+  pressure_ref_uPa: {value: 20.0, units: uPa, class: published, source: gevs, ref: "Table C-3: noise level re 0.00002 Pa"}
+  model_bands_hz: {value: [50, 63, 80, 100, 125, 160, 200, 250], units: Hz, class: study_policy, limitation: "the oracle/FEM design band; levels are SELECTED from the full published table at load time"}
+  oaspl_tolerance_dB: {value: 0.5, units: dB, class: study_policy, limitation: "published Overall printed to whole dB; qualification/acceptance differ by 3 dB, so a swapped corner fails"}
+
+source_conditions:
+  primary:
+    id: {value: qualification, class: published, source: gevs, ref: "Table C-3, without acoustic blankets, Qualification column"}
+    role_policy: {value: "primary forcing condition", class: study_policy, limitation: "study choice; qualification and acceptance are test/design envelopes, their difference is not a measured acoustic reduction"}
+    levels_dB: {value: [116, 120, 123.5, 124.5, 125.5, 126.5, 127, 128, 128, 128, 127.5, 127, 126, 123.5, 121.5, 119.5, 116.5, 114.5, 113, 113, 111, 111, 110.5, 110, 110.5, 112.5, 113.5], units: dB, class: published, source: gevs, ref: "Table C-3, without acoustic blankets, Qualification"}
+    oaspl_published_dB: {value: 138, units: dB, class: published, source: gevs, ref: "Table C-3 Overall, without acoustic blankets, Qualification"}
+  secondary:
+    id: {value: acceptance, class: published, source: gevs, ref: "Table C-3, without acoustic blankets, Acceptance column"}
+    role_policy: {value: "secondary source corner", class: study_policy, limitation: "study choice"}
+    levels_dB: {value: [113, 117, 120.5, 121.5, 122.5, 123.5, 124, 125, 125, 125, 124.5, 124, 123, 120.5, 118.5, 116.5, 113.5, 111.5, 110, 110, 108, 108, 107.5, 107, 107.5, 109.5, 110.5], units: dB, class: published, source: gevs, ref: "Table C-3, without acoustic blankets, Acceptance"}
+    oaspl_published_dB: {value: 135, units: dB, class: published, source: gevs, ref: "Table C-3 Overall, without acoustic blankets, Acceptance"}
+  blanket_state: {value: absent, class: published, source: gevs, ref: "Table C-3: 'Without Acoustic Blankets' columns"}
+  statistic: {value: "Atlas I, II and IIA acoustic qualification / acceptance test levels inside the 4.3 m (14 ft) payload fairing; test/design envelopes, not measured flight spectra", class: published, source: gevs, ref: "Appendix C, Table C-3 title"}
+  fill_factor_range: {value: [0.50, 0.60], units: "1", class: published, source: gevs, ref: "Table C-3: assumes 50-60% fill by cross-section area"}
+  fill_factor_nominal: {value: 0.55, units: "1", class: modelling_assumption, limitation: "assumed midpoint of the published 50-60% range; not a NASA-published nominal"}
+
+acoustics:
+  alpha_bare_nominal: {value: 0.05, units: "1", class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "Falcon generic value reused for a controlled cross-vehicle comparison; not an Atlas measurement"}
+  alpha_bare_range: {value: [0.02, 0.10], units: "1", class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "Falcon generic interval reused; not an Atlas measurement"}
+  A_other_assumed_m2: {value: 27.505504232224073, units: m^2, class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "the Falcon corrected kappa RATIO (0.23164775636) applied to the Atlas representative wall area; not an Atlas absorption measurement"}
+  kappa_nominal: {value: 0.23164775635990886, units: "1", class: derived, derivation: "A_other_assumed_m2 / representative lined wall area (118.7385 m^2)", limitation: "generic cross-vehicle model assumption carried by A_other"}
+  kappa_half_width: {value: 0.03, units: "1", class: study_policy, limitation: "project kappa uncertainty policy"}
+  kappa_eval_range: {value: [0.20164775635990886, 0.2616477563599089], units: "1", class: derived, derivation: "kappa_nominal -+ kappa_half_width"}
+  Q_fixed: {value: 15.0, units: "1", class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "Falcon generic liner Q reused; not an Atlas value"}
+  payload_impedance: {value: "payload is a rigid obstruction cut out of the FEM domain (payload_model); payload and other absorption enter only through A_other / kappa", class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "no published Atlas payload shape, position or impedance"}
+  gas_state: {value: "standard air as in the oracle (rho 1.204 kg/m^3, c 343 m/s)", class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "flight gas pressure/temperature not modelled"}
+
+# FEM payload obstruction (cut out of the axisymmetric acoustic domain; loader re-derives every number).
+# Representative centred payload from the published 50-60% cross-section fill; NOT actual Atlas payload geometry.
+payload_model:
+  axial_origin: {value: "z = 0 at station 0, the fairing base plane (the FEM source plane)", class: modelling_assumption, limitation: "the payload / adapter station relative to station 0 is not published for a representative mission"}
+  axial_placement_rule: {value: centred_in_barrel, class: modelling_assumption, limitation: "payload centred axially in the modelled cylindrical section (station 0 to STA 223.8 in)"}
+  axial_extent_fraction_of_barrel: {value: 0.8, units: "1", class: modelling_assumption, limitation: "no published payload length; 80% of the modelled cylinder, leaving 10% clearance at each end"}
+  axial_extent_m: {value: 4.5476160000000005, units: m, class: derived, derivation: "axial_extent_fraction_of_barrel * H_barrel_m"}
+  z_base_m: {value: 0.5684519999999997, units: m, class: derived, derivation: "0.5 * (H_barrel_m - axial_extent_m)"}
+  surface_condition: {value: rigid, class: modelling_assumption, label: generic_cross_vehicle_model_assumption, limitation: "no published payload surface impedance; sound-hard surface (beta = 0); payload absorption stays lumped in A_other / kappa"}
+  surface_beta: {value: [0.0, 0.0], units: "1", class: modelling_assumption, limitation: "normalized admittance (real, imag) of the rigid payload surface"}
+  primary_case: {value: fill_055, class: study_policy, limitation: "midpoint of the published 50-60% fill range"}
+  cases:
+    fill_055:
+      rule: {value: fill_fraction_solid, class: study_policy, limitation: "solid coaxial cylinder blocking the fill fraction of the fairing cross-section"}
+      role: {value: primary, class: study_policy, limitation: "primary representative payload for vehicle FEM"}
+      fill: {value: 0.55, units: "1", class: derived, derivation: "fill_factor_nominal (midpoint of the published fill_factor_range)"}
+      r_in_m: {value: 0.0, units: m, class: derived, derivation: "solid cylinder"}
+      r_out_m: {value: 1.5540643929708962, units: m, class: derived, derivation: "R_fair_m * sqrt(fill)"}
+    fill_050:
+      rule: {value: fill_fraction_solid, class: study_policy, limitation: "lower published fill bound"}
+      role: {value: sensitivity, class: study_policy, limitation: "fill sensitivity bound"}
+      fill: {value: 0.50, units: "1", class: derived, derivation: "lower end of the published fill_factor_range"}
+      r_in_m: {value: 0.0, units: m, class: derived, derivation: "solid cylinder"}
+      r_out_m: {value: 1.4817422599764103, units: m, class: derived, derivation: "R_fair_m * sqrt(fill)"}
+    fill_060:
+      rule: {value: fill_fraction_solid, class: study_policy, limitation: "upper published fill bound"}
+      role: {value: sensitivity, class: study_policy, limitation: "fill sensitivity bound"}
+      fill: {value: 0.60, units: "1", class: derived, derivation: "upper end of the published fill_factor_range"}
+      r_in_m: {value: 0.0, units: m, class: derived, derivation: "solid cylinder"}
+      r_out_m: {value: 1.6231673203955284, units: m, class: derived, derivation: "R_fair_m * sqrt(fill)"}
+
+semantics:
+  id: atlas_i_14ft_representative_relative_treatment
+  metric: relative_dOASPL_only
+  absolute_post_treatment_spl_allowed: false
+  validated_retrofit_claim_allowed: false
+  blankets_modelled: false
+  blanket_replacement_claim_allowed: false
+  alpha_bare_source: modelling_assumption
+  kappa_source: modelling_assumption
+  flight_validation_claim_allowed: false
+  experimental_validation_claim_allowed: false
+  exact_vehicle_claim_allowed: false
+  retrofit_certification_claim_allowed: false

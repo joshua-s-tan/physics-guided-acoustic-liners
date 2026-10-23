@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physics-guided-acoustic-liners"
+version = "1.0.0"
+description = "Physics-guided generative optimization of launch-vehicle acoustic liners: the LinerGen generator, LinerGen-seeded CMA-ES, payload-resolving FEM and OpenFOAM neck-flow correction (simulation-based)."
+requires-python = ">=3.11,<3.13"
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = [
+  "numpy", "scipy", "torch", "matplotlib", "scikit-fem", "gmsh", "meshio",
+  "cma", "scikit-learn", "pyyaml", "pillow",
+]
+
+[project.scripts]
+acoustic-liner = "acoustic_liner.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "pyflakes"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "full_evidence: optional test that needs the private full-evidence-v1 archive extracted to artifacts/dev",
+]

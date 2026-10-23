@@ -1,0 +1,375 @@
+{
+ "schema": "linergen-public-evidence/1",
+ "file": "figures-manifest.json",
+ "origin": {
+  "repository": "original development repository (private)",
+  "tag": "physgen-v1-evidence",
+  "commit": "03b79447ab63250900f50342672de565514f458e"
+ },
+ "sources": {},
+ "purpose": "Every README figure: its SHA-256, the tool that drew it, and the private inputs it was drawn from (by hash).",
+ "note": "Regenerating any of these figures needs the archived records or raw simulation outputs; a public clone alone cannot rebuild them.",
+ "figures": [
+  {
+   "path": "docs/figures/physics_1_context_fairing.png",
+   "label": "Figure 1",
+   "sha256": "0ec07edd4a074ab84985cc19c28b25881986c8993c9d72fdedb81e7c8759c70a",
+   "tool": "tools/plot_physics_fig1.py",
+   "tool_inputs": [
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json",
+     "public": false,
+     "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+     "bytes": 7950
+    },
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json",
+     "public": false,
+     "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+     "bytes": 64567
+    },
+    {
+     "path": "configs/falcon9_2025_unblanketed_v2.yaml",
+     "public": true,
+     "sha256": "9622e5cae1d1ec00be8f2e3c7f3c425d4e53e5f2e56ba0a2a424a878ba3ad6c8"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/physics_2_design_variables.png",
+   "label": "Figure 2",
+   "sha256": "6b25588afa9e47c82c57554d69fcef31ba215bc949d3c86b0d8075839c8a86a3",
+   "tool": "tools/plot_physics_fig1.py",
+   "tool_inputs": [
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json",
+     "public": false,
+     "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+     "bytes": 7950
+    },
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json",
+     "public": false,
+     "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+     "bytes": 64567
+    },
+    {
+     "path": "configs/falcon9_2025_unblanketed_v2.yaml",
+     "public": true,
+     "sha256": "9622e5cae1d1ec00be8f2e3c7f3c425d4e53e5f2e56ba0a2a424a878ba3ad6c8"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/physics_3_spectral_response.png",
+   "label": "Figure 3",
+   "sha256": "117969bf88c6ff4a9d2b12d0b08659a70711c0abc5f52e39d44fec24075919c9",
+   "tool": "tools/plot_physics_fig1.py",
+   "tool_inputs": [
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json",
+     "public": false,
+     "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+     "bytes": 7950
+    },
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json",
+     "public": false,
+     "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+     "bytes": 64567
+    },
+    {
+     "path": "configs/falcon9_2025_unblanketed_v2.yaml",
+     "public": true,
+     "sha256": "9622e5cae1d1ec00be8f2e3c7f3c425d4e53e5f2e56ba0a2a424a878ba3ad6c8"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/physics_4_robust_objective.png",
+   "label": "Figure 4",
+   "sha256": "d9d894e5b3682bed917a0e56dfe1d3439ec67a1c3162ff08e622aec04905001b",
+   "tool": "tools/plot_physics_fig1.py",
+   "tool_inputs": [
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json",
+     "public": false,
+     "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+     "bytes": 7950
+    },
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json",
+     "public": false,
+     "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+     "bytes": 64567
+    },
+    {
+     "path": "configs/falcon9_2025_unblanketed_v2.yaml",
+     "public": true,
+     "sha256": "9622e5cae1d1ec00be8f2e3c7f3c425d4e53e5f2e56ba0a2a424a878ba3ad6c8"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/linergen_architecture.png",
+   "label": "Figure 5",
+   "sha256": "3aa9ab01cefa27d4f6bc8923c29695f5c56b2019ff6c92719b00eb65a68e33ac",
+   "tool": "tools/plot_physgen_frozen.py",
+   "tool_inputs": [
+    {
+     "path": "physgen_v1/final_physgen_v1.json",
+     "public": false,
+     "sha256": "e3ba4b60f977b9b36b0ac7518ef9448dbacf7d67c15364b81aa54acc22d8caa5",
+     "bytes": 4799957
+    },
+    {
+     "path": "physgen_v1/development_physgen_v1.json",
+     "public": false,
+     "sha256": "1fe1fd0743cf4fda7cbedb8ea5931ae79efe2001852416d4f2aa6cf0b565137f",
+     "bytes": 2405368
+    },
+    {
+     "path": "physgen_v1/pilot_physgen_v1.json",
+     "public": false,
+     "sha256": "cd6f34c53bc187eb87181bfc1853dd93d574498e1ade8b07ed5e001e2b1bf4fc",
+     "bytes": 196377
+    },
+    {
+     "path": "physgen_v1/fem_audit/fem_transfer_audit.json",
+     "public": false,
+     "sha256": "27b360e3e9452735c0bb33ee0a5c3627334e2d88401d690c361eba1df74c52fc",
+     "bytes": 42602
+    },
+    {
+     "path": "physgen_v1/train/progress.jsonl",
+     "public": false,
+     "sha256": "7706ca6e94a1f1e8cc740a438dfe22c14f223921ae5f35cfde77670a35efe733",
+     "bytes": 70450
+    },
+    {
+     "path": "docs/PHYS-GEN-V1-CHECKPOINT-LOCK.json",
+     "public": true,
+     "sha256": "b5c3a1223eca0ad3a9f8f6ac15e0f53230bb0c5c804f108d865aba49b5385e9d"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/linergen_final_result.png",
+   "label": "Figure 6",
+   "sha256": "043dbf429f270008ef5db3025b0e7285aa987e4f1b62b82fe8298675c953a964",
+   "tool": "tools/plot_physgen_frozen.py",
+   "tool_inputs": [
+    {
+     "path": "physgen_v1/final_physgen_v1.json",
+     "public": false,
+     "sha256": "e3ba4b60f977b9b36b0ac7518ef9448dbacf7d67c15364b81aa54acc22d8caa5",
+     "bytes": 4799957
+    },
+    {
+     "path": "physgen_v1/development_physgen_v1.json",
+     "public": false,
+     "sha256": "1fe1fd0743cf4fda7cbedb8ea5931ae79efe2001852416d4f2aa6cf0b565137f",
+     "bytes": 2405368
+    },
+    {
+     "path": "physgen_v1/pilot_physgen_v1.json",
+     "public": false,
+     "sha256": "cd6f34c53bc187eb87181bfc1853dd93d574498e1ade8b07ed5e001e2b1bf4fc",
+     "bytes": 196377
+    },
+    {
+     "path": "physgen_v1/fem_audit/fem_transfer_audit.json",
+     "public": false,
+     "sha256": "27b360e3e9452735c0bb33ee0a5c3627334e2d88401d690c361eba1df74c52fc",
+     "bytes": 42602
+    },
+    {
+     "path": "physgen_v1/train/progress.jsonl",
+     "public": false,
+     "sha256": "7706ca6e94a1f1e8cc740a438dfe22c14f223921ae5f35cfde77670a35efe733",
+     "bytes": 70450
+    },
+    {
+     "path": "docs/PHYS-GEN-V1-CHECKPOINT-LOCK.json",
+     "public": true,
+     "sha256": "b5c3a1223eca0ad3a9f8f6ac15e0f53230bb0c5c804f108d865aba49b5385e9d"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/physics_5_fidelity_ladder.png",
+   "label": "Figure 7",
+   "sha256": "cc098c443a811c682548d5607bce81d0758fd1d2f9d6885f870b6f05f6029cd6",
+   "tool": "tools/plot_physics_fig1.py",
+   "tool_inputs": [
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json",
+     "public": false,
+     "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+     "bytes": 7950
+    },
+    {
+     "path": "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json",
+     "public": false,
+     "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+     "bytes": 64567
+    },
+    {
+     "path": "configs/falcon9_2025_unblanketed_v2.yaml",
+     "public": true,
+     "sha256": "9622e5cae1d1ec00be8f2e3c7f3c425d4e53e5f2e56ba0a2a424a878ba3ad6c8"
+    }
+   ],
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/fem/atlas_global_fem_acoustic_dynamics.gif",
+   "sha256": "4e5b11fd7d5f1faca8233e6cf44304ef4e3b8ab174cfcea5dbc464d354d8b04d",
+   "tool": "tools/fem_field_viz.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/fem_viz/atlas/atlas_fem_field_manifest.json",
+    "public": false,
+    "sha256": "51f3ce3d2f2c38aee11337cab78a8ad817f92f7b90f7b72d2f8744dac3426d2d",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/fem/atlas_global_fem_acoustic_field.png",
+   "sha256": "5bc824f992a850b992fc4225611efdafe266a753fd5eaa42af33df4ec377ff17",
+   "tool": "tools/fem_field_viz.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/fem_viz/atlas/atlas_fem_field_manifest.json",
+    "public": false,
+    "sha256": "51f3ce3d2f2c38aee11337cab78a8ad817f92f7b90f7b72d2f8744dac3426d2d",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/fem/falcon_global_fem_acoustic_dynamics.gif",
+   "sha256": "bbd54a4cbc676d18abf2297278c14609a21e39518201bd0034ac815ff25033ba",
+   "tool": "tools/fem_field_viz.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/fem_viz/falcon/falcon_fem_field_manifest.json",
+    "public": false,
+    "sha256": "8ee9a313ddab0c7b35ed3928d4f5400593cfe2d845ade556ecfb411688e76b99",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/fem/falcon_global_fem_acoustic_field.png",
+   "sha256": "88d66009a9bb71125d475fa1ab47bbaee749d97b40efdceb3a6d1884595e5897",
+   "tool": "tools/fem_field_viz.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/fem_viz/falcon/falcon_fem_field_manifest.json",
+    "public": false,
+    "sha256": "8ee9a313ddab0c7b35ed3928d4f5400593cfe2d845ade556ecfb411688e76b99",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/atlas_coupled_mechanism.gif",
+   "sha256": "669bcd2fe680eedfe50740b87db3b78fd0231111fd62af368eff0e4846e52e00",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/falcon_coupled_mechanism.gif",
+   "sha256": "556c020890ee24ba98adf84bdaefc22d8335b9710f17f20d7992c964d5093b13",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/falcon_multiscale_orientation.png",
+   "sha256": "2a36556650724b386c1343b53947e2aa157578b8be30d9ad2e3de9e4cbbc32b5",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/falcon_numerics_log_vorticity_shared.png",
+   "sha256": "5b8de327457f48ec2e99075886cbe7a5d34525a048c0ab1f40423535f128e2da",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/falcon_pressure_flow.png",
+   "sha256": "6dbe48cd3f947163151d0765f4bcce44f66bf49865b4facc4f7c11293516168c",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/falcon_speed_dissipation_shared.png",
+   "sha256": "3833b84bcb5ec18d6627547ff4e9c30ae4af04d8dfe1d973dc03887e3b81c6cf",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  },
+  {
+   "path": "docs/figures/cfd/geometry_falcon.png",
+   "sha256": "3f772f38cc2b28a23a25532b503488af27e3323bb59d42993e0fab0a8f1724a7",
+   "tool": "tools/viz_fields.py, tools/viz_cases.py",
+   "visualization_manifest": {
+    "path": "vehicle_v1/figures/cfd_viz/visualization_manifest.json",
+    "public": false,
+    "sha256": "d289d4b009972d75b40cf265264c70f32eddb1e91267a2c3567c5a623b9a285b",
+    "lists_this_file": true
+   },
+   "inputs": "raw FEM / OpenFOAM simulation outputs (archived, not distributed)",
+   "regenerable_from_public_clone": false
+  }
+ ]
+}

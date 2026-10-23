@@ -1,0 +1,20 @@
+# Deterministic line endings so raw-byte hashes (source_sha256, lock and record SHA-256 values) reproduce on any
+# checkout regardless of core.autocrlf. Source, text and config files are pinned to LF, which is what produced the
+# recorded hashes.
+*.py    text eol=lf
+*.json  text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.toml  text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.lock  text eol=lf
+*.pt    binary
+
+# Frozen, SHA-256-pinned files are kept as exact bytes (no end-of-line conversion, ever). The continuity fixtures
+# were frozen on Windows with CRLF, and their recorded hashes are over those bytes.
+tests/fixtures/*.json     -text
+evidence/**               -text
+# The pre-training seal was written on Windows with CRLF, and the checkpoint lock records the SHA-256 of those bytes
+# (seal_sha256 91203089...). Kept as the exact original bytes (Amendment A7, owner decision 2026-10-11).
+docs/PHYS-GEN-V1-SEAL.json -text

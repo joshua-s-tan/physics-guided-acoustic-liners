@@ -1,0 +1,951 @@
+{
+ "schema": "linergen-public-evidence/1",
+ "file": "fem-transfer-audit.json",
+ "origin": {
+  "repository": "original development repository (private)",
+  "tag": "physgen-v1-evidence",
+  "commit": "03b79447ab63250900f50342672de565514f458e"
+ },
+ "sources": {
+  "physgen_v1/fem_audit/fem_transfer_audit.json": {
+   "sha256": "27b360e3e9452735c0bb33ee0a5c3627334e2d88401d690c361eba1df74c52fc",
+   "bytes": 42602
+  },
+  "physgen_v1/fem_audit/fem_transfer_audit.seal.json": {
+   "sha256": "38d20ec04ab4fd6bd048a68e9c26630e37259d7bd8abb24ba8198fa5c6a43fa3",
+   "bytes": 1232
+  }
+ },
+ "purpose": "Synthetic FEM-transfer audit: reduced-order scorer vs four-corner FEM for the LinerGen-seeded CMA-ES winner on 20 new conditions, with every pair needed to recompute correlation, median error, bias and maximum error.",
+ "study": "physgen_v1_fem_transfer_audit",
+ "split": "fem_audit_physgen_v1",
+ "split_hash": "458f4be6aa5f48162059fb1f948b209fce8dbef90a3ea2d17e74cba4b43a94a8",
+ "method": "D",
+ "budget": 128,
+ "base_seed": 1129178451,
+ "seed": 0,
+ "checkpoint_model_sha256": "40318b3b79974c693a017dc3b63e9132e71ee3bc9456c30880554c65232a5a45",
+ "fem": {
+  "alpha_bare": 0.05,
+  "corners": [
+   ["kappa_lo", "low"],
+   ["kappa_lo", "high"],
+   ["kappa_hi", "low"],
+   ["kappa_hi", "high"]
+  ],
+  "mesh_size": 0.15
+ },
+ "geometry_rule": {
+  "H_barrel": 6.7,
+  "H_total": 13.2,
+  "R_fair": 2.6
+ },
+ "n_conditions": 20,
+ "recompute": {
+  "function": "casef_v2.fem_transfer_audit.summarize",
+  "diff": "oracle - fem"
+ },
+ "summary": {
+  "by_corner_median_diff_dB": {
+   "kappa_hi_high": -0.23600085461044817,
+   "kappa_hi_low": -0.22098627587549613,
+   "kappa_lo_high": -0.44718632479681714,
+   "kappa_lo_low": -0.2952574407037301
+  },
+  "corr_oracle_fem": 0.9573061996524468,
+  "max_abs_diff_dB": 1.1800451672357193,
+  "mean_diff_dB": 0.0733068576464084,
+  "median_abs_diff_dB": 0.37432411661355985,
+  "n": 20,
+  "n_evaluated": 20,
+  "rule": "median |oracle - FEM| > 1.0 dB = transfer failure (descriptive)",
+  "transfer_failure": false
+ },
+ "seal": {
+  "commit": "fae8b01f70847edcd41e9d1e2686c2be435fa186",
+  "record_sha256": "6c319a33f235c4b0aed21717092ce7dbd5be611914aeaf047b7161a8408fdb58",
+  "source_sha256": "8fa541874ed3c97369b70db136c3a3e870fb0e7936d12da2ee99061569fc5448"
+ },
+ "rows": [
+  {
+   "cond_index": 0,
+   "condition_hash": "f7b20d152c5a2f56ee02be7dcf46ab9e4729bde60fe09f87724862f291032c39",
+   "design_sha256": "e2a84f45f3407d9320dafdf685a94b3385d5cecb9877e71007485469bf98fab9",
+   "feasible": true,
+   "coverage": 1.0,
+   "kappa": 0.10217986340054332,
+   "mass": 151.45965073821682,
+   "target": 1.3552515960688631,
+   "oracle": 3.3210164152694506,
+   "fem": 3.5811223324655566,
+   "diff": -0.260105917196106,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.07217986340054332,
+     "coverage": 1.0,
+     "value": 3.822113107833604
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.07217986340054332,
+     "coverage": 1.0,
+     "value": 3.822113107833604
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.13217986340054333,
+     "coverage": 1.0,
+     "value": 3.5811223324655566
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.13217986340054333,
+     "coverage": 1.0,
+     "value": 3.5811223324655566
+    }
+   ]
+  },
+  {
+   "cond_index": 1,
+   "condition_hash": "863a73f4b7bb043d5850ad7c4575dca4a65ecc71baa476ff7016810a694d2a46",
+   "design_sha256": "fca08d005f39a092384ee3297e3909bcddb458effa9eb300b954987df76f8d1d",
+   "feasible": true,
+   "coverage": 1.0,
+   "kappa": 0.2712806422254954,
+   "mass": 168.45338193440605,
+   "target": 0.5113771229570819,
+   "oracle": 1.345124551958875,
+   "fem": 1.9635286938354692,
+   "diff": -0.6184041418765942,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.24128064222549542,
+     "coverage": 1.0,
+     "value": 2.0742621919386335
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.24128064222549542,
+     "coverage": 1.0,
+     "value": 2.0742621919386335
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.30128064222549544,
+     "coverage": 1.0,
+     "value": 1.9635286938354692
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.30128064222549544,
+     "coverage": 1.0,
+     "value": 1.9635286938354692
+    }
+   ]
+  },
+  {
+   "cond_index": 2,
+   "condition_hash": "717269c43ed42459afe6a10561a75a35dbf6a37d9a1849d1f37a35de6b0d45c7",
+   "design_sha256": "74f7a942fba034f1974586edf8950f8998f2ea5d17b377c89f161a15afa94b95",
+   "feasible": true,
+   "coverage": 1.0,
+   "kappa": 0.10784713203577097,
+   "mass": 199.24000836488798,
+   "target": 1.0703910060628663,
+   "oracle": 3.4734126213999277,
+   "fem": 4.048231873018287,
+   "diff": -0.5748192516183597,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.07784713203577097,
+     "coverage": 1.0,
+     "value": 4.287713310290972
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.07784713203577097,
+     "coverage": 1.0,
+     "value": 4.287713310290972
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.13784713203577098,
+     "coverage": 1.0,
+     "value": 4.048231873018287
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.13784713203577098,
+     "coverage": 1.0,
+     "value": 4.048231873018287
+    }
+   ]
+  },
+  {
+   "cond_index": 3,
+   "condition_hash": "28c92955d5fe8a6338afff87b04a9b66a11081c7e70d5314a4072d299f42b074",
+   "design_sha256": "5b7936a118bb16a17076ba2cbcd38ba8294e4e4b40cb687e5facaccf977a64ac",
+   "feasible": true,
+   "coverage": 1.0,
+   "kappa": 0.14974568123555781,
+   "mass": 143.57620685951986,
+   "target": 2.369190629817211,
+   "oracle": 4.924977472373334,
+   "fem": 4.616892957094933,
+   "diff": 0.3080845152784013,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.11974568123555782,
+     "coverage": 1.0,
+     "value": 4.945311261281999
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.11974568123555782,
+     "coverage": 1.0,
+     "value": 4.945311261281999
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.1797456812355578,
+     "coverage": 1.0,
+     "value": 4.616892957094933
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.1797456812355578,
+     "coverage": 1.0,
+     "value": 4.616892957094933
+    }
+   ]
+  },
+  {
+   "cond_index": 4,
+   "condition_hash": "1f921094d2aa080d36737d68635d92d84fe338e27b57d977b67931a77853b29b",
+   "design_sha256": "f95ec417853b902d7d3afc15975636bfeec32c4199762adc6a9634701940f54d",
+   "feasible": true,
+   "coverage": 0.6736486982693344,
+   "kappa": 0.038628042778184525,
+   "mass": 66.79715489562895,
+   "target": 1.1790714978873298,
+   "oracle": 3.545574630601833,
+   "fem": 3.592741437782334,
+   "diff": -0.047166807180500925,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.008628042778184526,
+     "coverage": 0.6736486982693344,
+     "value": 4.3248581633862555
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.008628042778184526,
+     "coverage": 0.6736486982693344,
+     "value": 3.8811977192459954
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.06862804277818452,
+     "coverage": 0.6736486982693344,
+     "value": 4.158000448126106
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.06862804277818452,
+     "coverage": 0.6736486982693344,
+     "value": 3.592741437782334
+    }
+   ]
+  },
+  {
+   "cond_index": 5,
+   "condition_hash": "7e1d8d4a5096a721c54fdde18c304f790ca09534a25c2a74c14f3acca835aafa",
+   "design_sha256": "d8ee26c35e2df651fe4eaeab3871b2c0b66b181a4d8f3c49a3858c4e0c77c578",
+   "feasible": true,
+   "coverage": 0.5327418673852897,
+   "kappa": 0.2029699226348857,
+   "mass": 155.68644050034393,
+   "target": 0.25,
+   "oracle": 0.5794335665183176,
+   "fem": 0.9562861647340084,
+   "diff": -0.37685259821569084,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.1729699226348857,
+     "coverage": 0.5327418673852897,
+     "value": 0.9956665593956551
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.1729699226348857,
+     "coverage": 0.5327418673852897,
+     "value": 1.0459556687242155
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.2329699226348857,
+     "coverage": 0.5327418673852897,
+     "value": 0.9608376681618549
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.2329699226348857,
+     "coverage": 0.5327418673852897,
+     "value": 0.9562861647340084
+    }
+   ]
+  },
+  {
+   "cond_index": 6,
+   "condition_hash": "4cd0ce05662bf2ff3cacd4674d340a9dc0dce60ffefefe14a64605eae27abce5",
+   "design_sha256": "de1e10966f95b530d3f927ece4afa055b7c9230ee2e56c953e2d12eabeae9a38",
+   "feasible": true,
+   "coverage": 0.8566292227662122,
+   "kappa": 0.20542857182684338,
+   "mass": 200.0,
+   "target": 1.8009482003585373,
+   "oracle": 3.5383551662087456,
+   "fem": 2.623411444205952,
+   "diff": 0.9149437220027936,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.17542857182684338,
+     "coverage": 0.8566292227662122,
+     "value": 2.7586021522235815
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.17542857182684338,
+     "coverage": 0.8566292227662122,
+     "value": 3.291177891239933
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.23542857182684337,
+     "coverage": 0.8566292227662122,
+     "value": 2.623411444205952
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.23542857182684337,
+     "coverage": 0.8566292227662122,
+     "value": 3.0312480023441664
+    }
+   ]
+  },
+  {
+   "cond_index": 7,
+   "condition_hash": "fc8bfda7326e52c1ecce5d9f2ca41aa6a76c98af5b3467f44627b0f33fb5de4e",
+   "design_sha256": "bf43a6afd9b69cc24ab9b60f399489d6e634d29e44d79a6c202cc9288bdffb38",
+   "feasible": true,
+   "coverage": 0.9988166047578457,
+   "kappa": 0.19170909838731812,
+   "mass": 200.0,
+   "target": 1.6605372050645557,
+   "oracle": 3.5616673866872626,
+   "fem": 3.3555578636440915,
+   "diff": 0.2061095230431711,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.16170909838731812,
+     "coverage": 0.9988166047578457,
+     "value": 3.586823597493179
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.16170909838731812,
+     "coverage": 0.9988166047578457,
+     "value": 3.601845079368435
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.22170909838731812,
+     "coverage": 0.9988166047578457,
+     "value": 3.3555578636440915
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.22170909838731812,
+     "coverage": 0.9988166047578457,
+     "value": 3.3681688634286706
+    }
+   ]
+  },
+  {
+   "cond_index": 8,
+   "condition_hash": "882b75714f590960cfbe0fb18f91133fa0904ebc13e099e2d4745305b37217c2",
+   "design_sha256": "8b71dcb3c1dbf113fd3b3554f081554f0fe81aa86a8a40e4c2a575e4adfc0886",
+   "feasible": true,
+   "coverage": 0.9917230420190193,
+   "kappa": 0.016453409925154126,
+   "mass": 116.0428368238164,
+   "target": 3.10232543778143,
+   "oracle": 6.732526503564253,
+   "fem": 5.552481336328534,
+   "diff": 1.1800451672357193,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.0,
+     "coverage": 0.9917230420190193,
+     "value": 5.87764181585775
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.0,
+     "coverage": 0.9917230420190193,
+     "value": 5.970170808368634
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.04645340992515412,
+     "coverage": 0.9917230420190193,
+     "value": 5.552481336328534
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.04645340992515412,
+     "coverage": 0.9917230420190193,
+     "value": 5.632734967721661
+    }
+   ]
+  },
+  {
+   "cond_index": 9,
+   "condition_hash": "09bb5f3d5efbaac4345cd0f87a23e6d9a9b54cdc7e5fefdab35239d8c1e132a5",
+   "design_sha256": "a4d432d451e4a552d668957b718b9975c90298f21991f08fd0fd204507cf6a28",
+   "feasible": true,
+   "coverage": 0.3260970660720526,
+   "kappa": 0.11595574106329617,
+   "mass": 53.295127774530364,
+   "target": 0.25,
+   "oracle": 0.44899205507568185,
+   "fem": 0.77932214392355,
+   "diff": -0.3303300888478682,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.08595574106329618,
+     "coverage": 0.3260970660720526,
+     "value": 0.8029519398517841
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.08595574106329618,
+     "coverage": 0.3260970660720526,
+     "value": 0.9605547051219537
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.14595574106329617,
+     "coverage": 0.3260970660720526,
+     "value": 0.77932214392355
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.14595574106329617,
+     "coverage": 0.3260970660720526,
+     "value": 0.8774617934123935
+    }
+   ]
+  },
+  {
+   "cond_index": 10,
+   "condition_hash": "8b7f5e96acd54c431d36b55548e4814dbde4ffb3123c59f1eebbb8acf1dac5f6",
+   "design_sha256": "1a7018a1f4be6a77d55ad39855dfcf48b9c7e7a776546742043d71cdeef15e8a",
+   "feasible": true,
+   "coverage": 0.7285097598247979,
+   "kappa": 0.05138539791667744,
+   "mass": 200.0,
+   "target": 0.8986322888829711,
+   "oracle": 2.571155984695886,
+   "fem": 1.9643114933900632,
+   "diff": 0.6068444913058226,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.021385397916677443,
+     "coverage": 0.7285097598247979,
+     "value": 2.058684415574816
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.021385397916677443,
+     "coverage": 0.7285097598247979,
+     "value": 2.8894620075896538
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.08138539791667744,
+     "coverage": 0.7285097598247979,
+     "value": 1.9643114933900632
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.08138539791667744,
+     "coverage": 0.7285097598247979,
+     "value": 2.6484855779066234
+    }
+   ]
+  },
+  {
+   "cond_index": 11,
+   "condition_hash": "a39cd0a6b280da4ba892608b4b07a20ef729a27bb03e3753619e05e6e17525dd",
+   "design_sha256": "2e02678d6f84362a844847d6cf838eaed4c0e37224e8196dcfe183186aca73be",
+   "feasible": true,
+   "coverage": 0.7102184832386881,
+   "kappa": 0.22257125397834096,
+   "mass": 200.0,
+   "target": 0.25,
+   "oracle": 1.3098380190299275,
+   "fem": 1.6816336540413563,
+   "diff": -0.37179563501142887,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.19257125397834096,
+     "coverage": 0.7102184832386881,
+     "value": 1.8325594980355173
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.19257125397834096,
+     "coverage": 0.7102184832386881,
+     "value": 1.8205462144207332
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.25257125397834096,
+     "coverage": 0.7102184832386881,
+     "value": 1.76791996299304
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.25257125397834096,
+     "coverage": 0.7102184832386881,
+     "value": 1.6816336540413563
+    }
+   ]
+  },
+  {
+   "cond_index": 12,
+   "condition_hash": "0294887cfba803059e671dd1dda239d3572ca641160c7eefc2bfa1205497b9e5",
+   "design_sha256": "c746b9db64875d872401d43f36879797fe6ea9c60f03c5ed54ce82e5851b9308",
+   "feasible": true,
+   "coverage": 0.5358432331788614,
+   "kappa": 0.15236583957071026,
+   "mass": 124.11901269085679,
+   "target": 0.25,
+   "oracle": 0.7927018167772788,
+   "fem": 1.1476470956020481,
+   "diff": -0.35494527882476934,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.12236583957071026,
+     "coverage": 0.5358432331788614,
+     "value": 1.1848488825541388
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.12236583957071026,
+     "coverage": 0.5358432331788614,
+     "value": 1.2848610314451647
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.18236583957071026,
+     "coverage": 0.5358432331788614,
+     "value": 1.1476470956020481
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.18236583957071026,
+     "coverage": 0.5358432331788614,
+     "value": 1.1802172580752757
+    }
+   ]
+  },
+  {
+   "cond_index": 13,
+   "condition_hash": "0bcd0853f7e5f02cd86b98a26312129a3f7e88134da36400f35a30af10610b1f",
+   "design_sha256": "3b5712d9aa85caedebccb192d8d7e8e907fbe6e597975ec4b861018769909733",
+   "feasible": true,
+   "coverage": 1.0,
+   "kappa": 0.24533711058179802,
+   "mass": 198.44577988794768,
+   "target": 0.5510027592031184,
+   "oracle": 1.4700654749888145,
+   "fem": 1.9417439829147465,
+   "diff": -0.471678507925932,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.21533711058179802,
+     "coverage": 1.0,
+     "value": 2.049903193774563
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.21533711058179802,
+     "coverage": 1.0,
+     "value": 2.049903193774563
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.275337110581798,
+     "coverage": 1.0,
+     "value": 1.9417439829147465
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.275337110581798,
+     "coverage": 1.0,
+     "value": 1.9417439829147465
+    }
+   ]
+  },
+  {
+   "cond_index": 14,
+   "condition_hash": "d01c9c6e8da9584ddb2165c2a16199a6397bc943b5170b3009f09208d6d863e5",
+   "design_sha256": "fe53ae6638482749e7d92988209cee99f678ff3f2380ad5793dfe9a717354ad4",
+   "feasible": true,
+   "coverage": 1.0,
+   "kappa": 0.1111593759496239,
+   "mass": 168.14727802051692,
+   "target": 1.3546440184932915,
+   "oracle": 3.2022689976117498,
+   "fem": 3.41416478963654,
+   "diff": -0.21189579202479036,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.0811593759496239,
+     "coverage": 1.0,
+     "value": 3.630119544999486
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.0811593759496239,
+     "coverage": 1.0,
+     "value": 3.630119544999486
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.1411593759496239,
+     "coverage": 1.0,
+     "value": 3.41416478963654
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.1411593759496239,
+     "coverage": 1.0,
+     "value": 3.41416478963654
+    }
+   ]
+  },
+  {
+   "cond_index": 15,
+   "condition_hash": "6f38e926dff1df7f25dbe8678bc8fa52d9633ebc45d7c60fd4421cf88d4e2459",
+   "design_sha256": "4983aec5e8a2ce46d68896c71aebc3a66b4d0ef1b96fc7fbe20b9426052e2c30",
+   "feasible": true,
+   "coverage": 0.9238226890594059,
+   "kappa": 0.01642478988649306,
+   "mass": 174.27682457933014,
+   "target": 2.098487187522435,
+   "oracle": 5.319827589922927,
+   "fem": 4.82550490435065,
+   "diff": 0.49432268557227665,
+   "robust_corner": ["kappa_hi", "high"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.0,
+     "coverage": 0.9238226890594059,
+     "value": 5.260998291492136
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.0,
+     "coverage": 0.9238226890594059,
+     "value": 5.085582012319021
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.04642478988649306,
+     "coverage": 0.9238226890594059,
+     "value": 5.0341313704392725
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.04642478988649306,
+     "coverage": 0.9238226890594059,
+     "value": 4.82550490435065
+    }
+   ]
+  },
+  {
+   "cond_index": 16,
+   "condition_hash": "c1053ec7841fd7c2ff8fdb5df3648c8e6aabe0d40397dd5547b08a7b680ae1c6",
+   "design_sha256": "0382575027ffbe1e7f36c749e81c32da330b6c8878b568d097f3e5e63bf34cda",
+   "feasible": true,
+   "coverage": 0.7274846648577085,
+   "kappa": 0.10666600833403761,
+   "mass": 200.0,
+   "target": 1.2874009949925378,
+   "oracle": 2.8471800948680737,
+   "fem": 1.958538058774516,
+   "diff": 0.8886420360935576,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.07666600833403761,
+     "coverage": 0.7274846648577085,
+     "value": 2.053914993994819
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.07666600833403761,
+     "coverage": 0.7274846648577085,
+     "value": 2.877769338105824
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.1366660083340376,
+     "coverage": 0.7274846648577085,
+     "value": 1.958538058774516
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.1366660083340376,
+     "coverage": 0.7274846648577085,
+     "value": 2.633808455831738
+    }
+   ]
+  },
+  {
+   "cond_index": 17,
+   "condition_hash": "a94be9e9c449460d4f69f98877b3ed479445f66456bfd75ba60c23bd823ac700",
+   "design_sha256": "923ac0abb95c756be0392fe05fba2a7712ccd6a5b8f570702f48623082cc131e",
+   "feasible": true,
+   "coverage": 0.2074081618751986,
+   "kappa": 0.046267087700411276,
+   "mass": 25.97934068688542,
+   "target": 0.25,
+   "oracle": 0.3802172646255566,
+   "fem": 0.6102940243517585,
+   "diff": -0.2300767597262019,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.016267087700411277,
+     "coverage": 0.2074081618751986,
+     "value": 0.6167722612569145
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.016267087700411277,
+     "coverage": 0.2074081618751986,
+     "value": 0.9236770924458332
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.07626708770041127,
+     "coverage": 0.2074081618751986,
+     "value": 0.6102940243517585
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.07626708770041127,
+     "coverage": 0.2074081618751986,
+     "value": 0.834641615736093
+    }
+   ]
+  },
+  {
+   "cond_index": 18,
+   "condition_hash": "e5fc09a84c4f852d81729db8467954031f8e54fec367f0bb702cfbcaf3155de3",
+   "design_sha256": "d6ae7d5c31ede4edc4d4424d1b894784fc137b5d04587e010a1779bbed68e589",
+   "feasible": true,
+   "coverage": 0.4375729642382242,
+   "kappa": 0.05592863930955448,
+   "mass": 133.9939589015733,
+   "target": 0.4567812441696447,
+   "oracle": 1.2296055699984874,
+   "fem": 1.0965999435893523,
+   "diff": 0.13300562640913505,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.025928639309554483,
+     "coverage": 0.4375729642382242,
+     "value": 1.1489748945506437
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.025928639309554483,
+     "coverage": 0.4375729642382242,
+     "value": 1.74546662256154
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.08592863930955448,
+     "coverage": 0.4375729642382242,
+     "value": 1.0965999435893523
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.08592863930955448,
+     "coverage": 0.4375729642382242,
+     "value": 1.5906445931914945
+    }
+   ]
+  },
+  {
+   "cond_index": 19,
+   "condition_hash": "c64ed24afa50f4d61cc027bbd4a00a2ee638fc1e67d6487fd8e3f8060200db43",
+   "design_sha256": "bc19768c57c61fc36cb1dee175f3233e2e9d5cf1396345f652a59b5aae1cc6ae",
+   "feasible": true,
+   "coverage": 0.7771789430095457,
+   "kappa": 0.2762852257849986,
+   "mass": 200.0,
+   "target": 1.3041689850822447,
+   "oracle": 2.4836256011288462,
+   "fem": 1.9014154366933131,
+   "diff": 0.5822101644355331,
+   "robust_corner": ["kappa_hi", "low"],
+   "corners": [
+    {
+     "corner_id": ["kappa_lo", "low"],
+     "anchor": "low",
+     "kappa": 0.2462852257849986,
+     "coverage": 0.7771789430095457,
+     "value": 1.9911118679921573
+    },
+    {
+     "corner_id": ["kappa_lo", "high"],
+     "anchor": "high",
+     "kappa": 0.2462852257849986,
+     "coverage": 0.7771789430095457,
+     "value": 2.4571082086410625
+    },
+    {
+     "corner_id": ["kappa_hi", "low"],
+     "anchor": "low",
+     "kappa": 0.3062852257849986,
+     "coverage": 0.7771789430095457,
+     "value": 1.9014154366933131
+    },
+    {
+     "corner_id": ["kappa_hi", "high"],
+     "anchor": "high",
+     "kappa": 0.3062852257849986,
+     "coverage": 0.7771789430095457,
+     "value": 2.24615709132539
+    }
+   ]
+  }
+ ]
+}

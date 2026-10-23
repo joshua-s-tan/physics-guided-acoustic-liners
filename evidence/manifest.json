@@ -1,0 +1,135 @@
+{
+ "schema": "acoustic-liner/evidence-manifest/1",
+ "origin": {
+  "repository": "original development repository (private)",
+  "tag": "physgen-v1-evidence",
+  "commit": "03b79447ab63250900f50342672de565514f458e"
+ },
+ "historical_summaries": {
+  "format": "linergen-public-evidence/1",
+  "note": "Archived evidence, kept byte for byte. The format identifier and the names inside these files are those of the implementation that produced the records.",
+  "files": {
+   "linergen-final-evaluation.json": {
+    "sha256": "bd6364410c34df1620d2472faa3449472c58e7e0014544fe61c6b73660eb5c8f",
+    "bytes": 336213,
+    "purpose": "Sealed final test: 100 conditions x 5 paired seeds x 3 budgets for the four methods, with every per-cell value needed to recompute the paired contrasts, bootstrap intervals and Figure 6.",
+    "private_sources": {
+     "physgen_v1/final_physgen_v1.json": {
+      "sha256": "e3ba4b60f977b9b36b0ac7518ef9448dbacf7d67c15364b81aa54acc22d8caa5",
+      "bytes": 4799957
+     }
+    }
+   },
+   "fem-transfer-audit.json": {
+    "sha256": "a130b552f44ad562b5ff0f6802b9526d4925be1a8322924d2ae7293057f8b2e4",
+    "bytes": 26257,
+    "purpose": "Synthetic FEM-transfer audit: reduced-order scorer vs four-corner FEM for the LinerGen-seeded CMA-ES winner on 20 new conditions, with every pair needed to recompute correlation, median error, bias and maximum error.",
+    "private_sources": {
+     "physgen_v1/fem_audit/fem_transfer_audit.json": {
+      "sha256": "27b360e3e9452735c0bb33ee0a5c3627334e2d88401d690c361eba1df74c52fc",
+      "bytes": 42602
+     },
+     "physgen_v1/fem_audit/fem_transfer_audit.seal.json": {
+      "sha256": "38d20ec04ab4fd6bd048a68e9c26630e37259d7bd8abb24ba8198fa5c6a43fa3",
+      "bytes": 1232
+     }
+    }
+   },
+   "falcon9-vehicle.json": {
+    "sha256": "1af85799e444cf2f83458f3edf255016fb1e278029f678e4269b6b3f806ee0ef",
+    "bytes": 11124,
+    "purpose": "falcon9_2025_unblanketed_v2: selected design, initial FEM, CFD-corrected FEM, uncertainty bounds, failed checks and the formal verdicts. Intermediate CFD records are not included.",
+    "private_sources": {
+     "vehicle_v1/falcon9_2025_unblanketed_v2/finalist.json": {
+      "sha256": "fea83b310a316a3430dd1aa916fd5a9b2551dad24fee25034dac795d5deca15e",
+      "bytes": 7950
+     },
+     "vehicle_v1/falcon9_2025_unblanketed_v2/initial_fem.json": {
+      "sha256": "c83b8e52ca0fc632298a7689510bee5a23014ff77d371be1de1c8eba7c7a60d6",
+      "bytes": 64567
+     },
+     "vehicle_v1/falcon9_2025_unblanketed_v2/statistical_followup/verdict/verdict.json": {
+      "sha256": "5debff394e75c7a10cb8ae9372ac282213506bbd54fa7304f3834d9ae014d01a",
+      "bytes": 13920
+     },
+     "vehicle_v1/falcon9_2025_unblanketed_v2/supplemental_statistical/verdict/verdict.json": {
+      "sha256": "ceaac17efd0e04b24c5ef5bf3cd5e40fdf8ab93b123efda0a556088caf97109c",
+      "bytes": 6919
+     },
+     "vehicle_v1/falcon9_2025_unblanketed_v2/verdict/verdict.json": {
+      "sha256": "0dc0dc01357d010d41a15a704019ce500bb759453da03e251e0a16c4bb63c419",
+      "bytes": 3570
+     }
+    }
+   },
+   "atlas-i-vehicle.json": {
+    "sha256": "c70e2cff300559bf4480fcedf5ea7aa1692cf7085250fd9ef5f39655f30aab93",
+    "bytes": 11662,
+    "purpose": "atlas_i_14ft_representative_unblanketed: selected design, initial FEM, CFD-corrected FEM, uncertainty bounds, failed checks and the formal verdicts. Intermediate CFD records are not included.",
+    "private_sources": {
+     "vehicle_v1/atlas_i_14ft_representative_unblanketed/finalist.json": {
+      "sha256": "32bf1910c6a2493e414ab340130a6481689a34dde1fd5e11bf64c15d14ad955b",
+      "bytes": 8366
+     },
+     "vehicle_v1/atlas_i_14ft_representative_unblanketed/initial_fem.json": {
+      "sha256": "2a8103b43a6f671a36ade8e92c764429ce6056cb605ab648b30863a684629926",
+      "bytes": 96382
+     },
+     "vehicle_v1/atlas_i_14ft_representative_unblanketed/statistical_followup/_stat_fem.json": {
+      "sha256": "c91cf48c3302cf4b2e2cddca80a503d1283d1f3298f12c32dc4e7672d415f087",
+      "bytes": 4199
+     },
+     "vehicle_v1/atlas_i_14ft_representative_unblanketed/statistical_followup/verdict/verdict.json": {
+      "sha256": "2364c08dbd6958935295b917040f89ab1df3e88a3f9966f980c66d60fce77b93",
+      "bytes": 12724
+     },
+     "vehicle_v1/atlas_i_14ft_representative_unblanketed/verdict/verdict.json": {
+      "sha256": "77e059185d92ee4c68fe56bdb0fdcd29fd47eef95e1845d5bb1a7c0d5e8393b2",
+      "bytes": 11328
+     }
+    }
+   },
+   "figures-manifest.json": {
+    "sha256": "2026498fb974dcaf02cc533527a6b601e24d97c12b3a54b8c3c8773b9ab0ad82",
+    "bytes": 13934,
+    "purpose": "Every README figure: its SHA-256, the tool that drew it, and the private inputs it was drawn from (by hash).",
+    "private_sources": {}
+   }
+  }
+ },
+ "checkpoint_manifest": {
+  "path": "release/checkpoint-manifest.json",
+  "sha256": "539cfc548c828a8ca6912f17403b81064f3e66cfdbc708703eb835ab673d203c",
+  "bytes": 3211,
+  "schema": "acoustic-liner/checkpoint-manifest/1",
+  "purpose": "Checkpoint file and weight hashes, architecture and configuration; the checkpoint itself is a GitHub release asset."
+ },
+ "full_evidence_archive": {
+  "filename": "full-evidence-v1.zip",
+  "sha256": "85398470a8fde9f55d5ed86f5293b69d5dda19e156c9ab0bc3d1187addce4d33",
+  "bytes": 2531640,
+  "distribution": "not distributed",
+  "contents": "the 726 original frozen records (JSON / JSONL / Markdown), the three FEM / CFD visualization manifests named in figures-manifest.json, and SHA256SUMS.json"
+ },
+ "current_summaries": {
+  "posthoc-followups.json": {
+   "sha256": "c4a1b3ed647e48fbbeb0a66781e04b46df19d747b3107e36d1fbaeef0ada0daf",
+   "bytes": 13677,
+   "schema": "acoustic-liner/posthoc-followups/1",
+   "purpose": "The three post-hoc vehicle follow-ups (docs/POST-HOC-FOLLOWUPS-REPORT.md): what each decided, with the values it decided on. Every earlier verdict is unchanged; these stages are reported beside them."
+  },
+  "readme-figures.json": {
+   "sha256": "d258e46a0608e05772c9c848fabbf7c73ec46a4f31a09fcd774285c7e2ae38b7",
+   "bytes": 3594,
+   "schema": "acoustic-liner/readme-figures/1",
+   "purpose": "Every README figure and its SHA-256. The figures were drawn from the study records, most of them private; their drafting scripts are kept with the private records, so a public clone cannot redraw them."
+  }
+ },
+ "posthoc_archive": {
+  "filename": "posthoc-evidence-v1.zip",
+  "sha256": "7e2315c8350aaebbfe7388d3fdd08ed2a29de5af0b71c38b77be4b100bb534e7",
+  "bytes": 18736,
+  "distribution": "not distributed",
+  "contents": "the private records named in posthoc-followups.json, and SHA256SUMS.json"
+ }
+}

@@ -1,0 +1,15 @@
+# Core runtime dependencies. Exact versions are pinned in requirements.lock.
+# Python 3.11.x is the tested interpreter range.
+numpy
+scipy
+torch
+matplotlib
+scikit-fem
+gmsh
+meshio
+cma
+scikit-learn
+pyyaml
+pillow
+# NOTE: OpenFOAM is an EXTERNAL system dependency, NOT a pip package. The tested distribution is
+# openfoam2606 (ESI). See environment-openfoam.md for OS/WSL requirements and invocation.

@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+
+# Transient compute outputs
+*.msh
+*.log
+*.tmp
+processor*/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# The trained checkpoint is published as a GitHub release asset, not in git history
+# (see release/checkpoint-manifest.json). Local copies for upload go here.
+/release-assets/
+
+# Study outputs (frozen records, checkpoints, raw OpenFOAM cases, logs) are not in git. The compact public evidence is
+# in evidence/; the original records are kept in a private archive (full-evidence-v1.zip, see evidence/manifest.json).
+/artifacts/
+
+# Documents kept in the private archive, not distributed. A copy placed here for the archived-document checks, or the
+# scenario table written by `acoustic-liner provenance scenario-table`, stays out of git.
+/docs/*.md
+/docs/*.json

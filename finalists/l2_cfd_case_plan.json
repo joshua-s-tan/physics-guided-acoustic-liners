@@ -1,0 +1,390 @@
+{
+  "geometry_path": "finalists\\falcon_v2.1_finalist_geometry.json",
+  "geometry_hash": "dfbf00a03d9699c60717e4b990c2914ef60ef7617a76e0071d702c1a6849bb69",
+  "scenario": "falcon9_2025_blanketed",
+  "coverage": 0.4321,
+  "banks": [
+    {
+      "bank_id": "L2_b0",
+      "f0_Hz": 120.751,
+      "d_mm": 19.9935,
+      "r_neck_m": 0.009996735932120561,
+      "L_neck_m": 0.038103524325375074,
+      "S_neck_m2": 0.0003139542113965272,
+      "V_cav_m3": 0.0011645961547496297,
+      "spl_dB": 121.5,
+      "R_linear_loaded_Rayl": 3.35539,
+      "u_tone_upperbound": 10.018,
+      "u_broadband_equiv": 5.376,
+      "Re_tone": 13354.0,
+      "Sr_tone": 0.241,
+      "velocities_m_s": [
+        0.5,
+        2.0,
+        5.4,
+        6.0,
+        7.7,
+        12.0,
+        20.0
+      ]
+    },
+    {
+      "bank_id": "L2_b1",
+      "f0_Hz": 158.868,
+      "d_mm": 5.8194,
+      "r_neck_m": 0.0029096916447938943,
+      "L_neck_m": 0.03711830681357218,
+      "S_neck_m2": 2.6597683060635424e-05,
+      "V_cav_m3": 7.465884021415409e-05,
+      "spl_dB": 122.0,
+      "R_linear_loaded_Rayl": 3.37031,
+      "u_tone_upperbound": 10.565,
+      "u_broadband_equiv": 5.669,
+      "Re_tone": 4099.0,
+      "Sr_tone": 0.088,
+      "velocities_m_s": [
+        0.5,
+        2.0,
+        5.7,
+        6.0,
+        8.1,
+        12.0,
+        20.0
+      ]
+    },
+    {
+      "bank_id": "L2_b2",
+      "f0_Hz": 250.053,
+      "d_mm": 10.5841,
+      "r_neck_m": 0.005292069731789466,
+      "L_neck_m": 0.027606190042319626,
+      "S_neck_m2": 8.79834502845183e-05,
+      "V_cav_m3": 0.00011456517746202114,
+      "spl_dB": 120.5,
+      "R_linear_loaded_Rayl": 4.61594,
+      "u_tone_upperbound": 6.491,
+      "u_broadband_equiv": 3.483,
+      "Re_tone": 4580.0,
+      "Sr_tone": 0.408,
+      "velocities_m_s": [
+        0.5,
+        2.0,
+        3.5,
+        5.0,
+        6.0,
+        12.0,
+        20.0
+      ]
+    },
+    {
+      "bank_id": "L2_b3",
+      "f0_Hz": 199.697,
+      "d_mm": 7.2501,
+      "r_neck_m": 0.0036250302320282504,
+      "L_neck_m": 0.014299149020661029,
+      "S_neck_m2": 4.128317954765416e-05,
+      "V_cav_m3": 0.00015077137068688154,
+      "spl_dB": 121.5,
+      "R_linear_loaded_Rayl": 2.06076,
+      "u_tone_upperbound": 16.312,
+      "u_broadband_equiv": 8.753,
+      "Re_tone": 7884.0,
+      "Sr_tone": 0.089,
+      "velocities_m_s": [
+        0.5,
+        2.0,
+        6.0,
+        8.8,
+        12.0,
+        12.5,
+        20.0
+      ]
+    }
+  ],
+  "outbase": "artifacts/falcon_v2.1_finalist/cfd_cases_L2",
+  "n_cases": 28,
+  "cases": [
+    {
+      "name": "L2_b0_u0.5",
+      "bank_id": "L2_b0",
+      "u_target": 0.5,
+      "case_hash": "24cc2580ca9306abee2015ae0615495f13ae28f28bb43cc68b68358d41bfbf4b",
+      "input_tree_hash": "d638effe4387c6ba5dbd8e21f8ba3777f3d47787e873d4c11c57335fdbb93f2b",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b0_u2",
+      "bank_id": "L2_b0",
+      "u_target": 2.0,
+      "case_hash": "1d64f71bc1edc1a669f6ce3a030be8c6ee3d081dca957019db5dd8aca6102220",
+      "input_tree_hash": "9b776eee270aa1d506f48964adbe45eaccbbd6bd1d2da67fc26a3c4c5f1fea83",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b0_u5.4",
+      "bank_id": "L2_b0",
+      "u_target": 5.4,
+      "case_hash": "0713694114d7675681c410a2fbf335b342880e369c2e8875eab5cc385cb7d125",
+      "input_tree_hash": "cc443b016f6863f27ab83ad6a6e2591b655f1f0f071e214ec734e560ba89b6b3",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b0_u6",
+      "bank_id": "L2_b0",
+      "u_target": 6.0,
+      "case_hash": "e1abd0d8958f7f74636543da2ada210ffb46db854bf732acf850a6fd00561f75",
+      "input_tree_hash": "75b5f35f8628ddc663dd89310979ecb029b7a625d73c0d3169833068088bb6c9",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b0_u7.7",
+      "bank_id": "L2_b0",
+      "u_target": 7.7,
+      "case_hash": "216e73d525f80c0b14110f497f61b3d7603bcf02db028b27847912058a8ea201",
+      "input_tree_hash": "5abdceb99f50faef905dab941281d4e1a79d86ae0ab5b520e379737398dc0d1c",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b0_u12",
+      "bank_id": "L2_b0",
+      "u_target": 12.0,
+      "case_hash": "b5b3985bf21bac684f7b70fa56b0de6a3ec6e8e843f1f0a6dbc82ec0829803d5",
+      "input_tree_hash": "b4d3e93dbfdcc81785c1efa95737213f9b329e0a3a545f00ef5554fb2efd3edc",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b0_u20",
+      "bank_id": "L2_b0",
+      "u_target": 20.0,
+      "case_hash": "c98ebb3b8a864331987e6a9b6bfe4065d639bbc9e101490a16589ebfd6c6f1ad",
+      "input_tree_hash": "c76ae6d0fc0fef9e25b12378c338929a8217c904095ddcc34693b66bece81a9b",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u0.5",
+      "bank_id": "L2_b1",
+      "u_target": 0.5,
+      "case_hash": "f649e01506dd257431055e39570693b958a7bf5fb74e99213d68f5495ce28d52",
+      "input_tree_hash": "cb69d5b04c05c4819f1a98f0a43eb9a68afa90abc6f288c4187ab1b4eddd5cd8",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u2",
+      "bank_id": "L2_b1",
+      "u_target": 2.0,
+      "case_hash": "d7754eacfbb3f33dc415758b42fb7894cbc325a6d536f48c4c315a1fe43e70f1",
+      "input_tree_hash": "d8846ec0e102198099f0795f66cd385577cc610228b76d6c9b4ef262181bdaf8",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u5.7",
+      "bank_id": "L2_b1",
+      "u_target": 5.7,
+      "case_hash": "ce5be1a252834b7faf7755cde50690f187f1433ec5d4e8e3e4165bb73d4a9236",
+      "input_tree_hash": "f7ac43fc0f4e82ea445e4168ed82efa6a8cbb26a93c2ec6120d540f90757561b",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u6",
+      "bank_id": "L2_b1",
+      "u_target": 6.0,
+      "case_hash": "d2b8849aaee2a11590432b3cfb827d150335eae961686335a21857229fb7c370",
+      "input_tree_hash": "83a8e99115800c35ef961c9c30fbf4f28b3411f60f5c660092aff3f4731b8814",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u8.1",
+      "bank_id": "L2_b1",
+      "u_target": 8.1,
+      "case_hash": "0d331493c3233d21ff3b92b8c3d7816ff2188ba5a51a3a31975c2c8e9b91c2c9",
+      "input_tree_hash": "53340107452771d35536182adcb0e321ef3925c8014525fc929faf22bb6af923",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u12",
+      "bank_id": "L2_b1",
+      "u_target": 12.0,
+      "case_hash": "002152487c6bfb8b487fa9a6699d7d2acb3dfd604831d98137e2f0d1d0ddd532",
+      "input_tree_hash": "2a5aa9ff0f95ad1b1ff2ae71f57da8b5c724949950baed3c531a9a5a08b43b4c",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b1_u20",
+      "bank_id": "L2_b1",
+      "u_target": 20.0,
+      "case_hash": "220d775521617c2f207d1b36b4c32e8fc70099ea5f4976fd66d979b15c097d46",
+      "input_tree_hash": "a1ee295294dcfc221419f93f14a5fd9408ed2230700b46a780c985caeecfbba4",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u0.5",
+      "bank_id": "L2_b2",
+      "u_target": 0.5,
+      "case_hash": "1254e7e1cf1041ef15c4627651829ccdb30648d72d63ecc1d3c559a1fb67e9e7",
+      "input_tree_hash": "46cb52d996070063a4a1aa2ef629bd764e4048aa6a5cdae81333467ff9e79647",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u2",
+      "bank_id": "L2_b2",
+      "u_target": 2.0,
+      "case_hash": "db96f7b19bc1ca870a36bc3cb68b4efdc565a8fc27b5bcfd5c658742dfc81a0d",
+      "input_tree_hash": "f06024b6553e9046c48329e80397d579b9fa696a1cfecf13fbc1a4fc4166979f",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u3.5",
+      "bank_id": "L2_b2",
+      "u_target": 3.5,
+      "case_hash": "0356e9fbb7e0f37031695b0378b17104af473343cf26ad9249edb8ab935139d9",
+      "input_tree_hash": "f74d002c2208f7f7181bb95f6244f99f2c64c6d46be8efae2670108ea9617328",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u5",
+      "bank_id": "L2_b2",
+      "u_target": 5.0,
+      "case_hash": "47c28b38fa596a0c4ce9aca3a3d8d43f408b177c3ee15731c22977f8904ab68b",
+      "input_tree_hash": "8f1ba075ad326cf64d403b655af7a016a116882ebcc942dda8fb4f7e5bb1949a",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u6",
+      "bank_id": "L2_b2",
+      "u_target": 6.0,
+      "case_hash": "ffb683a429404ee5e7cae4ce0e3bf89cb5bb6725329fc282fb80a31015ab8864",
+      "input_tree_hash": "6e3b3c9e2f5335902779c81be55b95d199b58fcef88eb1bfe750a84326f55c26",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u12",
+      "bank_id": "L2_b2",
+      "u_target": 12.0,
+      "case_hash": "f1176f7d1067c577388335373850611bfc3944f1f9e5da1e948ada2fdfc30c0c",
+      "input_tree_hash": "fb5241610cd610dd23e865078ecf200e0297ea30c18f8dd6ae34c471ab6bb2e4",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b2_u20",
+      "bank_id": "L2_b2",
+      "u_target": 20.0,
+      "case_hash": "ca61760ff1fd286dcc6ef783912f0ece1d2a374e40084f5a33b02e68cf207966",
+      "input_tree_hash": "97272d33e4481380e43f6bb30f955a40be01344e73f28eb6ffe2ae2758f6733c",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u0.5",
+      "bank_id": "L2_b3",
+      "u_target": 0.5,
+      "case_hash": "7ded218b499ebcbdb7320c6f560584e1b1145294a062b289ae85a63e69e55508",
+      "input_tree_hash": "33f283ebdc2ae2658cc5bf5641d574931e1693e85459fac3bd532fe59ba9ad31",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u2",
+      "bank_id": "L2_b3",
+      "u_target": 2.0,
+      "case_hash": "97d99bc74310469d1d7f8a3ee1b05bcfe2f8e26a1f3b89074270d8dc9d2905ed",
+      "input_tree_hash": "da5ab3c3ba13cd172cd8d119796f8a9b09a7375a915683641d642120d93d0bd4",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u6",
+      "bank_id": "L2_b3",
+      "u_target": 6.0,
+      "case_hash": "d99ff3fd0f395de61731ab3e930d708fc1e13af2273f17f53168e2aaf1954714",
+      "input_tree_hash": "25cc2173939336c20ddf5f10d83f31281dcb80819a32f6613a850651c7be36b9",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u8.8",
+      "bank_id": "L2_b3",
+      "u_target": 8.8,
+      "case_hash": "797ab81f3aefb7a090e25726a8650bf22d25d7a8f44b2543a2ad8a4d18cc3c39",
+      "input_tree_hash": "4d8deb06e17bafeb901a70bb30d2780ee0a22774d9b915b29a633393b384210a",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u12",
+      "bank_id": "L2_b3",
+      "u_target": 12.0,
+      "case_hash": "d00964ada61bc02961c95eb65c6c466f5d6b9f55de72590569a1a688479c9bc2",
+      "input_tree_hash": "3e016c93491aad1de4353df105c5377c478edcebe004a3bbc7054b279d3795f4",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u12.5",
+      "bank_id": "L2_b3",
+      "u_target": 12.5,
+      "case_hash": "c52a358c3bc37c53f924ebf4233dcb93fd3b1b852bbf1fc4145a4b8fef7c52a1",
+      "input_tree_hash": "4e84ba389cc0aca26521e39d2867f79a360e07531735e8e1a4bd2bd8c2f80fed",
+      "refine": 1.0,
+      "maxco": 0.5
+    },
+    {
+      "name": "L2_b3_u20",
+      "bank_id": "L2_b3",
+      "u_target": 20.0,
+      "case_hash": "6bbbe625ba94da22e67742b1a5dbe747f77898e0388589d3080d7e4371888241",
+      "input_tree_hash": "d1c2a43426b0cea39408487a5d6cf4732524d9dcbc09aef605dfb3d7be528c31",
+      "refine": 1.0,
+      "maxco": 0.5
+    }
+  ],
+  "case_names": [
+    "L2_b0_u0.5",
+    "L2_b0_u2",
+    "L2_b0_u5.4",
+    "L2_b0_u6",
+    "L2_b0_u7.7",
+    "L2_b0_u12",
+    "L2_b0_u20",
+    "L2_b1_u0.5",
+    "L2_b1_u2",
+    "L2_b1_u5.7",
+    "L2_b1_u6",
+    "L2_b1_u8.1",
+    "L2_b1_u12",
+    "L2_b1_u20",
+    "L2_b2_u0.5",
+    "L2_b2_u2",
+    "L2_b2_u3.5",
+    "L2_b2_u5",
+    "L2_b2_u6",
+    "L2_b2_u12",
+    "L2_b2_u20",
+    "L2_b3_u0.5",
+    "L2_b3_u2",
+    "L2_b3_u6",
+    "L2_b3_u8.8",
+    "L2_b3_u12",
+    "L2_b3_u12.5",
+    "L2_b3_u20"
+  ]
+}

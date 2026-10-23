@@ -1,0 +1,98 @@
+{
+ "schema": "acoustic-liner/checkpoint-manifest/1",
+ "provenance_schema_version": 2,
+ "asset": {
+  "filename": "linergen-v1-selected.pt",
+  "sha256": "d2fc917aa8c996eb4dd993cc2916eed7ecff6dbf2b9ae889f41e1d61245e0d59",
+  "size_bytes": 12180693,
+  "save_as": "artifacts/dev/physgen_v1/train/selected.pt"
+ },
+ "model": {
+  "name": "LinerGen",
+  "python_class": "acoustic_liner.models.linergen.LinerGenerator",
+  "weights_sha256": "40318b3b79974c693a017dc3b63e9132e71ee3bc9456c30880554c65232a5a45",
+  "n_tensors": 42,
+  "n_parameters": 1141010,
+  "dtypes": [
+   "float64"
+  ],
+  "selected_epoch": 155,
+  "architecture": {
+   "noise_dim": 32,
+   "width": 256,
+   "n_blocks": 4,
+   "cond_dim": 13,
+   "out_dim": 18,
+   "activation": "silu",
+   "norm": "layernorm",
+   "film": "per_block_scale_shift",
+   "passthrough": "z[:18]",
+   "noise": "logistic18_then_normal14",
+   "head_init": "zeros",
+   "dtype": "float64"
+  }
+ },
+ "binding": {
+  "configuration_sha256": "c266951d23f988c164125318a136a3b70cb7375a77783000c9bc4228a26a0851",
+  "training_split_hash": "96a5a90b15c08c3d361709ec59597012466b577c9708e1f2cac14817884d5f9d",
+  "validation_split_hash": "aed622c73284f1ffd7ce65fb8b196b5e90720f46254820e9e98e0bcd9e751da0",
+  "recorded_with": {
+   "torch": "2.10.0+cpu",
+   "numpy": "2.2.6"
+  }
+ },
+ "historical_binding": {
+  "architecture_sha256": "0759def61e8ca9bf48a15196f9ce044c466c403915f96472b4d162005a277a7d",
+  "source_sha256": "78135ec93c433c5f38482cf1848e5ba56f9cf4a94902046b30097d5f7d1b9e2f",
+  "scorer_sha256": "02c51b9dc86a4e3aa1a3d97a7ab61a50b0e9399bc598024febcce2bcf40a369b"
+ },
+ "public_architecture_sha256": "8dc05c184b44dfd9116d12609a6e2712b43be62a84240a08067a38919ec976a0",
+ "public_coordinate_transform_sha256": "c0927be1a14db2e594be72134c6aefbb9474fe890b5435e7ea8741fd30015904",
+ "public_model_source_sha256": "13768241f85cc362fee61380da6cf399c769639201395b6839903ce6be6485e5",
+ "public_scorer_source_sha256": "d5f116ca2dd07f85df0b3398f466c0fc2af3562b6906fb77bdfac8c2f49156f0",
+ "configuration": {
+  "n_train": 2048,
+  "n_val": 128,
+  "conds_per_step": 16,
+  "pop_per_cond": 16,
+  "epochs": 200,
+  "optimizer": "adam",
+  "lr": 0.0003,
+  "betas": [
+   0.9,
+   0.999
+  ],
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "warmup_frac": 0.02,
+  "final_lr_frac": 0.1,
+  "stabilize": 0.05,
+  "ramp_end": 0.3,
+  "sharpen_end": 0.8,
+  "w_perf_start": 0.1,
+  "w_div": 0.02,
+  "div_window_db": 0.5,
+  "div_bandwidth": 0.05,
+  "div_eps": 0.001,
+  "w_sat": 0.001,
+  "sat_u": 12.0,
+  "tau_corner": 0.0,
+  "node_grad": "cap_only",
+  "scorer": "quality_eval_exact",
+  "val_every": 5,
+  "val_pop": 32,
+  "unique_tol": 0.001,
+  "rank_min_median": 3.0,
+  "feas_min": 0.98,
+  "mass_min": 1.0,
+  "torch_threads": 8
+ },
+ "evidence": {
+  "checkpoint_lock": "docs/PHYS-GEN-V1-CHECKPOINT-LOCK.json",
+  "checkpoint_lock_sha256": "b5c3a1223eca0ad3a9f8f6ac15e0f53230bb0c5c804f108d865aba49b5385e9d",
+  "original_path": "artifacts/dev/physgen_v1/train/selected.pt",
+  "original_repository_tag": "physgen-v1-evidence",
+  "original_repository_commit": "03b79447ab63250900f50342672de565514f458e",
+  "note": "The published asset is the original training output, byte for byte. It is not re-saved, renamed internally or migrated."
+ }
+}
