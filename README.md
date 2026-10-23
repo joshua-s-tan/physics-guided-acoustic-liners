@@ -1044,3 +1044,5 @@ A longer-term extension would translate the generated geometries into manufactur
     provenance/     hashing, records, checkpoint manifest, verifiers
   evidence/         published results and their hashes
   ```
+
+Development note: AI coding assistants were used for code development, implementation, and testing. The architecture decisions, physics-based scoring model, optimization formulation, design of the FEM and OpenFOAM comparisons, experimental design, and interpretation of results are the author's. Reported numbers are recomputed from the published records by the included verification pipeline; the author takes responsibility for the work.
